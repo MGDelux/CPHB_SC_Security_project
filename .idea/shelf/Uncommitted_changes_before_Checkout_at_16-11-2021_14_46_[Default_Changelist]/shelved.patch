@@ -1,0 +1,492 @@
+Index: src/main/webapp/WEB-INF/web.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<web-app xmlns=\"http://xmlns.jcp.org/xml/ns/javaee\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd\"\r\n         version=\"4.0\">\r\n\r\n\r\n    <!-- login sevles -->\r\n    <servlet>\r\n        <servlet-name>SomeController</servlet-name>\r\n        <servlet-class>Controllers.BaseServlet</servlet-class>\r\n    </servlet>\r\n\r\n    <servlet-mapping>\r\n        <servlet-name>SomeController</servlet-name>\r\n        <url-pattern>/</url-pattern>\r\n    </servlet-mapping>\r\n\r\n</web-app>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/webapp/WEB-INF/web.xml	(revision 160da3bdef4d2e60f100ad050cbb5e886099d858)
++++ src/main/webapp/WEB-INF/web.xml	(date 1637070364313)
+@@ -7,12 +7,12 @@
+ 
+     <!-- login sevles -->
+     <servlet>
+-        <servlet-name>SomeController</servlet-name>
++        <servlet-name>BaseServlet</servlet-name>
+         <servlet-class>Controllers.BaseServlet</servlet-class>
+     </servlet>
+ 
+     <servlet-mapping>
+-        <servlet-name>SomeController</servlet-name>
++        <servlet-name>BaseServlet</servlet-name>
+         <url-pattern>/</url-pattern>
+     </servlet-mapping>
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 160da3bdef4d2e60f100ad050cbb5e886099d858)
++++ .idea/workspace.xml	(date 1637070374561)
+@@ -1,0 +1,444 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ArtifactsWorkspaceSettings">
++    <artifacts-to-build>
++      <artifact name="ValgfagBoilerPlateSecurity:war exploded" />
++    </artifacts-to-build>
++  </component>
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
++  <component name="BranchesTreeState">
++    <expand>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++    </expand>
++    <select>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++    </select>
++  </component>
++  <component name="ChangeListManager">
++    <list default="true" id="9ab8ee61-48f2-47e1-961b-e40658c46cb8" name="Default Changelist" comment="more additions">
++      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/b/ab38a0bc4243a21e9e6c269d596a89ad07d68ca3" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/b/ab38a0bc4243a21e9e6c269d596a89ad07d68ca3" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
++    </list>
++    <option name="SHOW_DIALOG" value="false" />
++    <option name="HIGHLIGHT_CONFLICTS" value="true" />
++    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++    <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="Jsp File" />
++        <option value="Interface" />
++        <option value="Class" />
++      </list>
++    </option>
++  </component>
++  <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="Mathias" />
++      </map>
++    </option>
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="LogFilters">
++    <option name="FILTER_ERRORS" value="false" />
++    <option name="FILTER_WARNINGS" value="false" />
++    <option name="FILTER_INFO" value="false" />
++    <option name="FILTER_DEBUG" value="false" />
++    <option name="CUSTOM_FILTER" />
++  </component>
++  <component name="MavenImportPreferences">
++    <option name="generalSettings">
++      <MavenGeneralSettings>
++        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.3\plugins\maven\lib\maven3" />
++      </MavenGeneralSettings>
++    </option>
++  </component>
++  <component name="ProjectId" id="1lNMcE4ZRDG6kG6ZIR3UzYQzxjj" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
++  <component name="ProjectViewState">
++    <option name="hideEmptyMiddlePackages" value="true" />
++    <option name="showLibraryContents" value="true" />
++  </component>
++  <component name="PropertiesComponent">
++    <property name="Downloaded.Files.Path.Enabled" value="false" />
++    <property name="Repository.Attach.Annotations" value="false" />
++    <property name="Repository.Attach.JavaDocs" value="false" />
++    <property name="Repository.Attach.Sources" value="false" />
++    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
++    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
++    <property name="WebServerToolWindowFactoryState" value="false" />
++    <property name="aspect.path.notification.shown" value="true" />
++    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
++    <property name="project.structure.last.edited" value="Facets" />
++    <property name="project.structure.proportion" value="0.15" />
++    <property name="project.structure.side.proportion" value="0.2" />
++    <property name="settings.editor.selected.configurable" value="configurable.group.build.android" />
++    <property name="settings.editor.splitter.proportion" value="0.23212537" />
++  </component>
++  <component name="RecentsManager">
++    <key name="CopyFile.RECENT_KEYS">
++      <recent name="C:\Users\mathi\IdeaProjects\BoilerPlate\src\main\resources" />
++      <recent name="C:\Users\mathi\IdeaProjects\BoilerPlate\src\main\webapp" />
++    </key>
++    <key name="CopyClassDialog.RECENTS_KEY">
++      <recent name="Controllers.WebPages" />
++    </key>
++    <key name="MoveFile.RECENT_KEYS">
++      <recent name="C:\Users\mathi\IdeaProjects\BoilerPlate\src\main\resources\META-INF" />
++      <recent name="C:\Users\mathi\IdeaProjects\BoilerPlate\src\main\java" />
++      <recent name="C:\Users\mathi\IdeaProjects\BoilerPlate\src\main" />
++    </key>
++  </component>
++  <component name="RunManager">
++    <configuration default="true" type="Applet" factoryName="Applet">
++      <option name="WIDTH" value="400" />
++      <option name="HEIGHT" value="300" />
++      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
++      <module />
++      <method />
++    </configuration>
++    <configuration default="true" type="Application" factoryName="Application">
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration default="true" type="JUnit" factoryName="JUnit">
++      <option name="TEST_OBJECT" value="class" />
++      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration default="true" type="TestNG">
++      <option name="TEST_OBJECT" value="CLASS" />
++      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
++      <properties />
++      <listeners />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="Tomcat 9.0.41" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.41" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="14" nameIsGenerated="true">
++      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
++      <deployment>
++        <artifact name="ValgfagBoilerPlateSecurity:war exploded">
++          <settings>
++            <option name="CONTEXT_PATH" value="/ValgfagBoilerPlateSecurity_war_exploded" />
++          </settings>
++        </artifact>
++      </deployment>
++      <server-settings>
++        <option name="BASE_DIRECTORY_NAME" value="Unnamed_ValgfagBoilerPlateSecurity_3" />
++        <option name="HTTP_PORT" value="8081" />
++      </server-settings>
++      <predefined_log_file enabled="true" id="Tomcat" />
++      <predefined_log_file enabled="true" id="Tomcat Catalina" />
++      <predefined_log_file id="Tomcat Manager" />
++      <predefined_log_file id="Tomcat Host Manager" />
++      <predefined_log_file id="Tomcat Localhost Access" />
++      <RunnerSettings RunnerId="Debug">
++        <option name="DEBUG_PORT" value="50902" />
++      </RunnerSettings>
++      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
++        <option name="USE_ENV_VARIABLES" value="true" />
++        <STARTUP>
++          <option name="USE_DEFAULT" value="true" />
++          <option name="SCRIPT" value="" />
++          <option name="VM_PARAMETERS" value="" />
++          <option name="PROGRAM_PARAMETERS" value="" />
++        </STARTUP>
++        <SHUTDOWN>
++          <option name="USE_DEFAULT" value="true" />
++          <option name="SCRIPT" value="" />
++          <option name="VM_PARAMETERS" value="" />
++          <option name="PROGRAM_PARAMETERS" value="" />
++        </SHUTDOWN>
++      </ConfigurationWrapper>
++      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
++        <option name="USE_ENV_VARIABLES" value="true" />
++        <STARTUP>
++          <option name="USE_DEFAULT" value="true" />
++          <option name="SCRIPT" value="" />
++          <option name="VM_PARAMETERS" value="" />
++          <option name="PROGRAM_PARAMETERS" value="" />
++        </STARTUP>
++        <SHUTDOWN>
++          <option name="USE_DEFAULT" value="true" />
++          <option name="SCRIPT" value="" />
++          <option name="VM_PARAMETERS" value="" />
++          <option name="PROGRAM_PARAMETERS" value="" />
++        </SHUTDOWN>
++      </ConfigurationWrapper>
++      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
++        <option name="USE_ENV_VARIABLES" value="true" />
++        <STARTUP>
++          <option name="USE_DEFAULT" value="true" />
++          <option name="SCRIPT" value="" />
++          <option name="VM_PARAMETERS" value="" />
++          <option name="PROGRAM_PARAMETERS" value="" />
++        </STARTUP>
++        <SHUTDOWN>
++          <option name="USE_DEFAULT" value="true" />
++          <option name="SCRIPT" value="" />
++          <option name="VM_PARAMETERS" value="" />
++          <option name="PROGRAM_PARAMETERS" value="" />
++        </SHUTDOWN>
++      </ConfigurationWrapper>
++      <method v="2">
++        <option name="Make" enabled="true" />
++        <option name="BuildArtifacts" enabled="true">
++          <artifact name="ValgfagBoilerPlateSecurity:war exploded" />
++        </option>
++      </method>
++    </configuration>
++    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
++      <module name="" />
++      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
++      <option name="PROGRAM_PARAMETERS" />
++      <predefined_log_file enabled="true" id="idea.log" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++  </component>
++  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
++  <component name="TaskManager">
++    <task active="true" id="Default" summary="Default task">
++      <changelist id="9ab8ee61-48f2-47e1-961b-e40658c46cb8" name="Default Changelist" comment="" />
++      <created>1607433174711</created>
++      <option name="number" value="Default" />
++      <option name="presentableId" value="Default" />
++      <updated>1607433174711</updated>
++      <workItem from="1607433175845" duration="4772000" />
++      <workItem from="1607494110771" duration="2589000" />
++      <workItem from="1609952469144" duration="613000" />
++      <workItem from="1637058370859" duration="1086000" />
++      <workItem from="1637059504782" duration="2363000" />
++      <workItem from="1637061912370" duration="7536000" />
++      <workItem from="1637069891423" duration="481000" />
++    </task>
++    <task id="LOCAL-00001" summary="inital commit">
++      <created>1637059993338</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1637059993338</updated>
++    </task>
++    <task id="LOCAL-00002" summary="more additions">
++      <created>1637068871031</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1637068871031</updated>
++    </task>
++    <option name="localTasksCounter" value="3" />
++    <servers />
++  </component>
++  <component name="TypeScriptGeneratedFilesManager">
++    <option name="version" value="3" />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State>
++              <option name="FILTERS">
++                <map>
++                  <entry key="branch">
++                    <value>
++                      <list>
++                        <option value="origin/master" />
++                      </list>
++                    </value>
++                  </entry>
++                </map>
++              </option>
++            </State>
++          </value>
++        </entry>
++      </map>
++    </option>
++    <option name="oldMeFiltersMigrated" value="true" />
++  </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="inital commit" />
++    <MESSAGE value="more additions" />
++    <option name="LAST_COMMIT_MESSAGE" value="more additions" />
++  </component>
++  <component name="WindowStateProjectService">
++    <state x="1155" y="564" key="#Assign_Data_Sources" timestamp="1637067924119">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state x="1155" y="564" key="#Assign_Data_Sources/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637067924119" />
++    <state x="1006" y="496" key="#BuildArtifactsBeforeRunChooser" timestamp="1637059617951">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state x="1006" y="496" key="#BuildArtifactsBeforeRunChooser/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637059617951" />
++    <state x="730" y="345" width="1099" height="864" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1637064371165">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state x="730" y="345" width="1099" height="864" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637064371165" />
++    <state x="968" y="479" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1637067137809">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state x="968" y="479" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637067137809" />
++    <state x="1038" y="335" key="#com.intellij.ide.util.MemberChooser" timestamp="1637067279484">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state x="1038" y="335" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637067279484" />
++    <state x="1001" y="673" key="#com.intellij.javaee.module.view.common.J2EE.J2EEDeploymentDescriptorLocationPanel.changeDDPath" timestamp="1637068648169">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state x="1001" y="673" key="#com.intellij.javaee.module.view.common.J2EE.J2EEDeploymentDescriptorLocationPanel.changeDDPath/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637068648169" />
++    <state x="-951" y="855" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1637059075018">
++      <screen x="-1440" y="-310" width="1440" height="2520" />
++    </state>
++    <state x="-951" y="855" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.2560.1400/-1440.-310.1440.2520@-1440.-310.1440.2520" timestamp="1637059075018" />
++    <state x="758" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1637065199041">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state x="758" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637065199041" />
++    <state x="-1056" y="634" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1637059057558">
++      <screen x="-1440" y="-310" width="1440" height="2520" />
++    </state>
++    <state x="-1056" y="634" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400/-1440.-310.1440.2520@-1440.-310.1440.2520" timestamp="1637059057558" />
++    <state x="92" y="92" width="2376" height="1216" key="DiffContextDialog" timestamp="1637065020690">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state x="92" y="92" width="2376" height="1216" key="DiffContextDialog/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637065020690" />
++    <state x="1007" y="395" key="FileChooserDialogImpl" timestamp="1637069413025">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state x="1007" y="395" key="FileChooserDialogImpl/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637069413025" />
++    <state width="1727" height="615" key="GridCell.Tab.0.bottom" timestamp="1637070227415">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state width="943" height="385" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1440.-310.1440.2520@-1440.-310.1440.2520" timestamp="1637059052481" />
++    <state width="1727" height="615" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637070227415" />
++    <state width="1727" height="615" key="GridCell.Tab.0.center" timestamp="1637070227415">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state width="943" height="385" key="GridCell.Tab.0.center/0.0.2560.1400/-1440.-310.1440.2520@-1440.-310.1440.2520" timestamp="1637059052481" />
++    <state width="1727" height="615" key="GridCell.Tab.0.center/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637070227415" />
++    <state width="1727" height="615" key="GridCell.Tab.0.left" timestamp="1637070227414">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state width="943" height="385" key="GridCell.Tab.0.left/0.0.2560.1400/-1440.-310.1440.2520@-1440.-310.1440.2520" timestamp="1637059052481" />
++    <state width="1727" height="615" key="GridCell.Tab.0.left/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637070227414" />
++    <state width="1727" height="615" key="GridCell.Tab.0.right" timestamp="1637070227415">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state width="943" height="385" key="GridCell.Tab.0.right/0.0.2560.1400/-1440.-310.1440.2520@-1440.-310.1440.2520" timestamp="1637059052481" />
++    <state width="1727" height="615" key="GridCell.Tab.0.right/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637070227415" />
++    <state width="1727" height="615" key="GridCell.Tab.1.bottom" timestamp="1637070227415">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state width="943" height="385" key="GridCell.Tab.1.bottom/0.0.2560.1400/-1440.-310.1440.2520@-1440.-310.1440.2520" timestamp="1637059052481" />
++    <state width="1727" height="615" key="GridCell.Tab.1.bottom/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637070227415" />
++    <state width="1727" height="615" key="GridCell.Tab.1.center" timestamp="1637070227415">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state width="943" height="385" key="GridCell.Tab.1.center/0.0.2560.1400/-1440.-310.1440.2520@-1440.-310.1440.2520" timestamp="1637059052481" />
++    <state width="1727" height="615" key="GridCell.Tab.1.center/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637070227415" />
++    <state width="1727" height="615" key="GridCell.Tab.1.left" timestamp="1637070227415">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state width="943" height="385" key="GridCell.Tab.1.left/0.0.2560.1400/-1440.-310.1440.2520@-1440.-310.1440.2520" timestamp="1637059052481" />
++    <state width="1727" height="615" key="GridCell.Tab.1.left/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637070227415" />
++    <state width="1727" height="615" key="GridCell.Tab.1.right" timestamp="1637070227415">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state width="943" height="385" key="GridCell.Tab.1.right/0.0.2560.1400/-1440.-310.1440.2520@-1440.-310.1440.2520" timestamp="1637059052481" />
++    <state width="1727" height="615" key="GridCell.Tab.1.right/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637070227415" />
++    <state width="1727" height="615" key="GridCell.Tab.2.bottom" timestamp="1637070227415">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state width="943" height="385" key="GridCell.Tab.2.bottom/0.0.2560.1400/-1440.-310.1440.2520@-1440.-310.1440.2520" timestamp="1637059052482" />
++    <state width="1727" height="615" key="GridCell.Tab.2.bottom/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637070227415" />
++    <state width="1727" height="615" key="GridCell.Tab.2.center" timestamp="1637070227415">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state width="943" height="385" key="GridCell.Tab.2.center/0.0.2560.1400/-1440.-310.1440.2520@-1440.-310.1440.2520" timestamp="1637059052481" />
++    <state width="1727" height="615" key="GridCell.Tab.2.center/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637070227415" />
++    <state width="1727" height="615" key="GridCell.Tab.2.left" timestamp="1637070227415">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state width="943" height="385" key="GridCell.Tab.2.left/0.0.2560.1400/-1440.-310.1440.2520@-1440.-310.1440.2520" timestamp="1637059052481" />
++    <state width="1727" height="615" key="GridCell.Tab.2.left/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637070227415" />
++    <state width="1727" height="615" key="GridCell.Tab.2.right" timestamp="1637070227415">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state width="943" height="385" key="GridCell.Tab.2.right/0.0.2560.1400/-1440.-310.1440.2520@-1440.-310.1440.2520" timestamp="1637059052481" />
++    <state width="1727" height="615" key="GridCell.Tab.2.right/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637070227415" />
++    <state x="-1306" y="520" key="Maven.ArtifactSearchDialog" timestamp="1637059105944">
++      <screen x="-1440" y="-310" width="1440" height="2520" />
++    </state>
++    <state x="-1306" y="520" key="Maven.ArtifactSearchDialog/0.0.2560.1400/-1440.-310.1440.2520@-1440.-310.1440.2520" timestamp="1637059105944" />
++    <state x="248" y="122" key="MergeDialog" timestamp="1637070213556">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state x="248" y="122" key="MergeDialog/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637070213556" />
++    <state x="424" y="284" width="1696" height="1061" key="SettingsEditor" timestamp="1637068666601">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state x="424" y="284" width="1696" height="1061" key="SettingsEditor/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637068666601" />
++    <state x="772" y="367" key="Vcs.Push.Dialog.v2" timestamp="1637068877974">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state x="772" y="367" key="Vcs.Push.Dialog.v2/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637068877974" />
++    <state x="92" y="92" width="2376" height="1216" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1637065020690">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state x="92" y="92" width="2376" height="1216" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637065020690" />
++    <state x="954" y="656" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1637068356924">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state x="954" y="656" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637068356924" />
++    <state x="1048" y="592" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1637070194866">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state x="1048" y="592" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637070194866" />
++    <state x="971" y="340" key="git4idea.branch.GitSmartOperationDialog" timestamp="1637070211019">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state x="971" y="340" key="git4idea.branch.GitSmartOperationDialog/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637070211019" />
++    <state x="956" y="576" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1637068828432">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state x="956" y="576" key="git4idea.remote.GitConfigureRemotesDialog/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637068828432" />
++    <state x="859" y="308" width="1189" height="1034" key="search.everywhere.popup" timestamp="1637068494148">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state x="859" y="308" width="1189" height="1034" key="search.everywhere.popup/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637068494148" />
++    <state x="597" y="389" key="vcs.ApplyPatchDifferentiatedDialog" timestamp="1637059904424">
++      <screen x="0" y="0" width="2560" height="1400" />
++    </state>
++    <state x="597" y="389" key="vcs.ApplyPatchDifferentiatedDialog/0.0.2560.1400/-1440.-310.1440.2520@0.0.2560.1400" timestamp="1637059904424" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/target/\r\n.idea\r\n/.idea
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .gitignore	(revision 160da3bdef4d2e60f100ad050cbb5e886099d858)
++++ .gitignore	(date 1637070211643)
+@@ -1,3 +1,4 @@
+ /target/
+ .idea
++.idea
+ /.idea
+\ No newline at end of file
