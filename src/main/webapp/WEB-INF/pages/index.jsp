@@ -3,11 +3,13 @@
 <!doctype html>
 <html lang="da">
 <head>
-
+    <link href="<c:url value="/css/mainPage.css"/>" rel="stylesheet"/>
+    <style>
+        <jsp:include page="/css/mainPage.css"/>
+    </style>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-    <link href="<c:url value="css/index.css"/>" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Velkommen</title>
 </head>

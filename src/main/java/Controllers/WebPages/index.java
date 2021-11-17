@@ -23,7 +23,7 @@ public class index extends BaseServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 
             throws ServletException, IOException, ServletException, IOException {
-        render("index+", "/WEB-INF/pages/index.jsp", req, resp);
+        render("index", "/WEB-INF/pages/index.jsp", req, resp);
 
     }
 }
