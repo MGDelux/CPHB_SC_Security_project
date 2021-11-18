@@ -1,29 +1,35 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: mathi
-  Date: 26-10-2020
-  Time: 21:41
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+
+<!doctype html>
+<html lang="en">
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+    <style>
+        <jsp:include page="/css/error405.css"/>
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>405'ED</title>
-<%--  <style> <jsp:include page="../css/Loginstyle.css"/></style>--%>
 </head>
 <body>
 <main>
-  <div class="center">
-      <div class="container">
-          <div class="data">
-              <h1>OH GOD OH LAWD SOMETHING BAD HAS HAPPENED:</h1>
-              <h2>seems like your snooping around for something you aint' allowed to see</h2>
-              <h2 class="ERROR: ">${pageContext.response.status}</h2>
-              <div class="signup-link">
-                  WANNA GO BACK? <a href="${pageContext.request.contextPath}">klik her.</a></div>
-          </div>
-      </div>
-  </div>
-</main>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <div class="page-404">
+        <div class="outer">
+            <div class="middle">
+                <div class="inner">
 
+                    <div class="inner-circle"><i class="fa fa-cogs"></i><span>405</span></div>
+                    <span class="inner-status">Opps! Method not allowed!</span>
+                    <span class="inner-detail">Check your code and see if you made a mistake.</span>
+
+                    <div class="signup-link">
+                    GO BACK? <a href="${pageContext.request.contextPath}">klik her.</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
