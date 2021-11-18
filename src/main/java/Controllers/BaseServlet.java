@@ -3,8 +3,8 @@ package Controllers;
 import Controllers.widget.Navbar;
 import Models.Store.Log;
 import Models.Users.BaseUser;
-import Service.ILoginService;
-import Service.LoginService;
+import Persistence.UserRegister;
+import Service.RegisterService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,21 +13,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.time.LocalDateTime;
 
 
 /*
 This servlet is a general servlet. You should create a servles for each type of requests you have.
  */
-@WebServlet(name = "SomeController")
+@WebServlet(name = "BaseServlet")
 public class BaseServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected static final UserRegister REGISTER_SERVICE;
 
-        String servletPath = request.getServletPath();
-
-        // example login
-
+    static {
+        REGISTER_SERVICE = getRegisterService();
     }
+    public static UserRegister getRegisterService() {
+        RegisterService registerService = new RegisterService();
+        return new UserRegister(registerService);
+    }
+
 
     protected static BaseUser getUser(HttpServletRequest request, HttpServletResponse response, String errorMsgIfNull) throws IOException {
         HttpSession session = request.getSession();

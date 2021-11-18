@@ -20,7 +20,7 @@ public class BaseUser implements Serializable {
             +"[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@"
             +"(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
             message="{invalid.email}")
-    @Column(name="Email")
+    @Column(name="Email" , unique = true, length = 56)
     protected String email;
     @Column(name="Name")
     private String username;
