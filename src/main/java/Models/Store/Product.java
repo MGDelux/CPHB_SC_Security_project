@@ -1,11 +1,20 @@
 package Models.Store;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
 /**
  * CREATED BY mathias @ 14-11-2021 - 14:07
  **/
+@Entity(name = "Products")
 public class Product{
-
-    private int productID;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull
+    private Long productID;
     private String productName;
     private String productDescription;
     private double productPrice;
@@ -15,21 +24,13 @@ public class Product{
     public Product(){
     }
 
-    public Product(int productID, String productName, String productDescription, double productPrice, int productsInStock){
-        this.productID = productID;
+    public Product( String productName, String productDescription, double productPrice, int productsInStock){
         this.productName = productName;
         this.productDescription = productDescription;
         this.productPrice = productPrice;
         this.productsInStock = productsInStock;
     }
 
-    public int getProductID() {
-        return productID;
-    }
-
-    public void setProductID(int productID) {
-        this.productID = productID;
-    }
 
     public String getProductName() {
         return productName;
