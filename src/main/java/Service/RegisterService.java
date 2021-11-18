@@ -2,6 +2,7 @@ package Service;
 
 import Config.ErrorHandling.UserAlreadyExisting;
 import Config.ErrorHandling.UserInternalError;
+import Config.ErrorHandling.WebPermissionException;
 import Dependencies.EMF_Creator;
 import Models.Users.BaseUser;
 import Models.Users.Permissions;
@@ -20,9 +21,30 @@ public class RegisterService implements IRegisterService {
     private static EntityManagerFactory emf;
 
 
+    public boolean CheckIfInSystem(String email, String password) throws Exception {
+        emf = EMF_Creator.createEntityManagerFactoryForTest();
+        try {
+            EntityManager em = emf.createEntityManager();
+            BaseUser checkUser;
+            checkUser = (BaseUser) em.createNativeQuery(
+                    "SELECT * FROM USERS where Email = ?", BaseUser.class).setParameter(1, email).getSingleResult();
+            if (checkUser.getEmail().equalsIgnoreCase(email)){
+                System.out.println("in system");
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println(" not in system");
+
+            return true;
+        }
+        return false;
+    }
 
     @Override
-    public BaseUser registerNewUser(String email, String password ) throws Exception {
+    public BaseUser registerUser(String email, String password) throws Exception {
+        if (email ==null || password ==null){
+            throw new Exception(); //TODO CUSTOM Exception
+        }
         emf = EMF_Creator.createEntityManagerFactoryForTest();
         EntityManager em = emf.createEntityManager();
         BaseUser NewUser = new BaseUser(email, password);
@@ -34,18 +56,14 @@ public class RegisterService implements IRegisterService {
         permissions.add(permissions2);
         permissions.add(permissions3);
         try {
-
-
-        NewUser.setUserPermissions(permissions);
-        em.getTransaction().begin();
-        em.merge(NewUser);
-        em.getTransaction().commit();
-        }catch (Exception e){
-            throw new UserAlreadyExisting();
+            NewUser.setUserPermissions(permissions);
+            em.getTransaction().begin();
+            em.merge(NewUser);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            throw new WebPermissionException();
         }
         return NewUser;
-
-
     }
 }
 

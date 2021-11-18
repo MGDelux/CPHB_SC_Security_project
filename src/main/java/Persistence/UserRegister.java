@@ -1,11 +1,8 @@
 package Persistence;
 
-import Config.ErrorHandling.UserInternalError;
+import Config.ErrorHandling.WebPermissionException;
 import Models.Users.BaseUser;
 import Service.Interfaces.IRegisterService;
-
-import javax.management.Query;
-import java.sql.ResultSet;
 
 /**
  * CREATED BY mathias @ 18-11-2021 - 12:35
@@ -17,9 +14,12 @@ public class UserRegister {
         this.service = service;
     }
 
-
     public BaseUser register(String email, String password) throws Exception {
-        return service.registerNewUser(email,password);
+        return service.registerUser(email, password);
+    }
+
+    public boolean checkIfUserInSystem(String email, String password) throws Exception {
+        return service.CheckIfInSystem(email, password);
     }
 
 }

@@ -1,10 +1,12 @@
 package Controllers.WebPages;
 
+import Config.VerifyRecaptcha;
 import Controllers.BaseServlet;
 import Dependencies.EMF_Creator;
 import Models.Users.BaseUser;
 import Models.Users.Permissions;
-
+import net.tanesha.recaptcha.ReCaptchaImpl;
+import net.tanesha.recaptcha.ReCaptchaResponse;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletException;
@@ -36,21 +38,10 @@ public class Login extends BaseServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         try {
-            BaseUser user = new BaseUser(email,password);
-            List<Permissions> newUserPerms = new ArrayList<>();
-            Permissions basepermNr1 = new Permissions("Viewpersonal page", Permissions.UserPermissions.VIEW_PERSONAL_USER_PAGE);
-            Permissions basepermNr2 = new Permissions("ADD TO BASKET", Permissions.UserPermissions.ADD_TO_BASKET);
-            newUserPerms.add(basepermNr1);
-            newUserPerms.add(basepermNr2);
-            user.setUserPermissions(newUserPerms);
-            //ONLY FOR TESTING PURPORSES JESUS
-            emf = EMF_Creator.createEntityManagerFactoryForTest();
-            EntityManager em = emf.createEntityManager();
-            em.getTransaction().begin();
-            em.persist(user);
-            em.getTransaction().commit();
-            req.getSession().setAttribute("user",user);
-            req.getSession().setAttribute("role", user.getUserPermissions());
+            String gRecaptchaResponse = req.getParameter("g-recaptcha-response");
+            VerifyRecaptcha.verify(gRecaptchaResponse);
+         //   req.getSession().setAttribute("user",user);
+         //   req.getSession().setAttribute("role", user.getUserPermissions());
             req.getSession().setAttribute("loggedIn",true);
             resp.sendRedirect(req.getContextPath()+"");
 
