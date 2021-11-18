@@ -39,21 +39,88 @@
     </div>
 </nav>
 <body>
-<div class="wrapper">
-    <div class="cupcake">
-        <img class="cupcake" src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg" width="250" height="250" alt="cupcake">
-    </div>
-    <div class="cupcake">
-        <img class="cupcake" src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg" width="250" height="250"alt="cupcake">
-    </div>
-    <div class="cupcake">
-        <img class="cupcake" src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="250" height="250" alt="cupcake">
-    </div>
-    <div class="cupcake">
-        <img class="cupcake" src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="250" height="250" alt="cupcake">
-    </div>
-
+<section class="gradient-custom">
+<div class="headers">
+    <h1><strong>Velkommen til Solid-Cupcakes</strong></h1>
+    <h2 class="header2"><strong>Landets bedste cupcakes, vælg og bestil her</strong></h2>
 </div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card bg-dark">
+                <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="250" height="380" class="card-img-top" alt="...">
+                <div class="card-body bg-dark text-white">
+                    <h5 class="card-title">Choko cupcake</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+                <div class="Addcupcake">
+                    <button class="addtokurv" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card bg-dark">
+                <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="250" height="380" class="card-img-top" alt="...">
+                <div class="card-body bg-dark text-white">
+                    <h5 class="card-title">vanilje cupcake</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+                <div class="Addcupcake">
+                    <button class="addtokurv" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card bg-dark bg-dark text-white">
+                <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="250" height="380" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">jordbær sprinkle</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                </div>
+                <div class="Addcupcake">
+                    <button class="addtokurv" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card bg-dark bg-dark text-white">
+                <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="250" height="380" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Vegan cupcake</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+                <div class="Addcupcake">
+                    <button class="addtokurv" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
+                </div>
+            </div>
+        </div>
+    <div class="col">
+        <div class="card bg-dark bg-dark text-white">
+            <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="250" height="380" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Vegan cupcake</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+            <div class="Addcupcake">
+                <button class="addtokurv" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card bg-dark bg-dark text-white">
+            <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="250" height="380" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Vegan cupcake</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+            <div class="Addcupcake">
+                <button class="addtokurv" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+</section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
