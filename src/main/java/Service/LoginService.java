@@ -2,35 +2,33 @@ package Service;
 
 import Config.ErrorHandling.UserNotFoundException;
 import Models.Users.BaseUser;
+import Service.Interfaces.ILoginService;
 import org.mindrot.jbcrypt.BCrypt;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * CREATED BY mathias @ 16-11-2021 - 10:12
  **/
-public class LoginService  {
+public class LoginService implements ILoginService {
     private static EntityManagerFactory emf;
 
-    public boolean verifyCredentials(BaseUser baseUser) throws UserNotFoundException {
+    @Override
+    public boolean verifyCredentials(BaseUser user, String password) {
+      return BCrypt.checkpw(password,user.getSaltedPassword());
+    }
+
+    @Override
+    public boolean logout(BaseUser user, HttpServletRequest request) {
         return false;
     }
 
-    public boolean login(String pass,BaseUser user) throws UserNotFoundException {
-        EntityManager em = emf.createEntityManager();
-        try {
-            em.find(BaseUser.class,user.getId());
-        }catch (Exception e){
-            throw new UserNotFoundException();
-        }
-        return BCrypt.checkpw(pass,user.getSaltedPassword());
+    @Override
+    public boolean isLoggedin(BaseUser user, HttpServletRequest request) {
+        return false;
     }
 
 
-
-
-    public void logout(BaseUser user) {
-
-    }
 }

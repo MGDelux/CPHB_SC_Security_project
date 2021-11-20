@@ -26,12 +26,12 @@
                             <p class="text-white-50 mb-5">Please enter your email and password!</p>
 
                             <div class="form-outline form-white mb-4">
-                                <input type="email" id="typeEmailX" class="form-control form-control-lg" placeholder="Email" required/>
+                                <input name="email" type="email" id="typeEmailX" class="form-control form-control-lg" placeholder="Email" required/>
                                 <label class="form-label" for="typeEmailX">Email</label>
                             </div>
 
                             <div class="form-outline form-white mb-4">
-                                <input type="password" id="typePasswordX" class="form-control form-control-lg" placeholder="Password" required />
+                                <input name="password" type="password" id="typePasswordX" class="form-control form-control-lg" placeholder="Password" required />
                                 <label class="form-label" for="typePasswordX">Password</label>
 
 

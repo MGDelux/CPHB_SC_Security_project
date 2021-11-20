@@ -24,9 +24,9 @@ public class ProductComment implements Serializable {
     @NotNull
     @Column(name="timeStamp")
     private String timeAndDateStamp;
-    @Column(name="Commenting_User")
     @NotNull
     @ManyToOne(targetEntity = BaseUser.class,cascade = CascadeType.PERSIST,fetch =  FetchType.EAGER)
+    @JoinColumn(name = "comment_test_id")
     private BaseUser commenter;
     @NotNull
     @Column(name="Comment")
@@ -49,6 +49,14 @@ public class ProductComment implements Serializable {
 
     public String getTimeAndDateStamp() {
         return timeAndDateStamp;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setTimeAndDateStamp(String timeAndDateStamp) {

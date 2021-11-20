@@ -18,12 +18,11 @@ public class ProductComments {
     @NotNull
     @Column(name="Product_comments_id")
     private Long id;
-    @Column(name="Product")
+    @JoinColumn(name = "test_id")
     @NotNull
     @OneToOne(targetEntity = Product.class,cascade = CascadeType.PERSIST,fetch =  FetchType.EAGER)
     private Product product;
     @OneToMany(targetEntity = ProductComment.class,cascade = CascadeType.PERSIST,fetch =  FetchType.EAGER)
-    @Column(name="Comments")
     List<ProductComment> productCommentList;
 
     public ProductComments() {

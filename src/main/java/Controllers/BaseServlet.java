@@ -3,8 +3,12 @@ package Controllers;
 import Controllers.widget.Navbar;
 import Models.Store.Log;
 import Models.Users.BaseUser;
+import Persistence.UserLogin;
+import Persistence.UserPresistence;
 import Persistence.UserRegister;
+import Service.LoginService;
 import Service.RegisterService;
+import Service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,10 +25,29 @@ This servlet is a general servlet. You should create a servles for each type of 
 @WebServlet(name = "BaseServlet")
 public class BaseServlet extends HttpServlet {
     protected static final UserRegister REGISTER_SERVICE;
+    protected static final UserLogin LOGIN_SERVICE;
+    protected static final UserPresistence USER_SERVICE;
+    static {
+        USER_SERVICE = getUserService();
+    }
+
+    static {
+        LOGIN_SERVICE = getLoginService();
+    }
 
     static {
         REGISTER_SERVICE = getRegisterService();
     }
+    public static UserPresistence getUserService() {
+    UserService userService = new UserService();
+    return new UserPresistence(userService);
+    }
+
+    public static UserLogin getLoginService() {
+        LoginService loginService = new LoginService();
+        return new UserLogin(loginService);
+    }
+
     public static UserRegister getRegisterService() {
         RegisterService registerService = new RegisterService();
         return new UserRegister(registerService);
@@ -48,13 +71,13 @@ public class BaseServlet extends HttpServlet {
 
     protected void render(String title, String content, HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-       req.setAttribute("indexNavbar", new Navbar(req));
-      //  req.setAttribute("navbar", new Navbar(req));
+        req.setAttribute("indexNavbar", new Navbar(req));
+        //  req.setAttribute("navbar", new Navbar(req));
         req.setAttribute("title", title);
         req.setAttribute("content", content);
         req.getRequestDispatcher(content).forward(req, resp);
-       Log log = new Log(Log.WarnLevel.LOW_RISK,req,"Render");
-       log(log);
+        Log log = new Log(Log.WarnLevel.LOW_RISK, req, "Render");
+        log(log);
 
     }
 
