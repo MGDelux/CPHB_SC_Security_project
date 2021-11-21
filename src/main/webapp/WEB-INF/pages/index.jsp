@@ -45,84 +45,452 @@
     <h2 class="header2"><strong>Landets bedste cupcakes, vælg og bestil her</strong></h2>
 </div>
 
-<div class="row row-cols-1 row-cols-md-3 g-4">
+<div class="row row-cols-1 row-cols-md-5">
         <div class="col">
             <div class="card bg-dark">
-                <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="250" height="380" class="card-img-top" alt="...">
+                <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="35" height="250" class="card-img-top" alt="...">
                 <div class="card-body bg-dark text-white">
                     <h5 class="card-title">Choko cupcake</h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 </div>
                 <div class="Addcupcake">
-                    <button class="addtokurv" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
+                    <button class="btn btn-secondary" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
                 </div>
+                <div>
+                <!__ Modal button1 starter her -->
+                    <div>
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#Modal1">
+                    Se mere
+                </button>
+                </div>
+                <!__ Modal button1 slutter her -->
+
+                <!__ Modal content1 starter her -->
+                    <div>
+                        <div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content bg-dark">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle2">Choko cupcake</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="card bg-dark">
+                                            <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="35" height="250" class="card-img-top" alt="...">
+                                            <div class="card-body bg-dark text-white">
+                                                <h5 class="card-title">Choko cupcake</h5>
+                                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    </div>
+                                            <div id="comment">
+                                                <div class="card bg-dark text-white" id="commentCard">
+                                                    <div class="row">
+                                                        <div class="col-2"> <img src="https://i.imgur.com/xELPaag.jpg" width="70" class="rounded-circle mt-2"> </div>
+                                                        <div class="col-10">
+                                                            <div class="comment-box ml-2">
+                                                                <h4>Add a comment</h4>
+                                                                <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
+                                                                <div class="comment-area"> <textarea class="form-control" placeholder="what is your view?" rows="4"></textarea> </div>
+                                                                <div class="comment-btns mt-2">
+                                                                    <div class="row">
+                                                                        <div class="col-6">
+                                                                            <div class="pull-left"> <button class="btn btn-secondary btn-sm">Cancel</button> </div>
+                                                                        </div>
+                                                                        <div class="col-6">
+                                                                            <div class="pull-right" id="commentButton"> <button class="btn btn-secondary send btn-sm">Send <i class="fa fa-long-arrow-right ml-1"></i></button> </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button class="btn btn-secondary" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!__ Modal content1 slutter her -->
             </div>
         </div>
+
+
         <div class="col">
             <div class="card bg-dark">
-                <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="250" height="380" class="card-img-top" alt="...">
+                <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="35" height="250" class="card-img-top" alt="...">
                 <div class="card-body bg-dark text-white">
-                    <h5 class="card-title">vanilje cupcake</h5>
+                    <h5 class="card-title">Vanilje cupcake</h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 </div>
                 <div class="Addcupcake">
-                    <button class="addtokurv" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
+                    <button class="btn btn-secondary" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
                 </div>
+                <!__ Modal button2 starter her -->
+                <div>
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#Modal2">
+                        Se mere
+                    </button>
+                </div>
+                <!__ Modal button2 slutter her -->
+
+                <!__ Modal content2 starter her -->
+                <div>
+                    <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content bg-dark">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">vanilje cupcake</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="card bg-dark">
+                                        <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="35" height="250" class="card-img-top" alt="...">
+                                        <div class="card-body bg-dark text-white">
+                                            <h5 class="card-title">Vanilje cupcake</h5>
+                                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        </div>
+                                        <div id="comment">
+                                            <div class="card bg-dark text-white" id="commentCard">
+                                                <div class="row">
+                                                    <div class="col-2"> <img src="https://i.imgur.com/xELPaag.jpg" width="70" class="rounded-circle mt-2"> </div>
+                                                    <div class="col-10">
+                                                        <div class="comment-box ml-2">
+                                                            <h4>Add a comment</h4>
+                                                            <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
+                                                            <div class="comment-area"> <textarea class="form-control" placeholder="what is your view?" rows="4"></textarea> </div>
+                                                            <div class="comment-btns mt-2">
+                                                                <div class="row">
+                                                                    <div class="col-6">
+                                                                        <div class="pull-left"> <button class="btn btn-secondary btn-sm">Cancel</button> </div>
+                                                                    </div>
+                                                                    <div class="col-6">
+                                                                        <div class="pull-right" id="commentButton"> <button class="btn btn-secondary send btn-sm">Send <i class="fa fa-long-arrow-right ml-1"></i></button> </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button class="btn btn-secondary" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!__ Modal content2 slutter her -->
             </div>
         </div>
+
+<div class="row"></div>
+
         <div class="col">
             <div class="card bg-dark bg-dark text-white">
-                <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="250" height="380" class="card-img-top" alt="...">
+                <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="35" height="250" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">jordbær sprinkle</h5>
+                    <h5 class="card-title">Jordbær sprinkle</h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
                 </div>
                 <div class="Addcupcake">
-                    <button class="addtokurv" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
+                    <button class="btn btn-secondary" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
                 </div>
+                <!__ Modal button3 starter her -->
+                <div>
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#Modal3">
+                        Se mere
+                    </button>
+                </div>
+                <!__ Modal button3 slutter her -->
+
+                <!__ Modal content3 starter her -->
+                <div>
+                    <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content bg-dark">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle3">jordbær sprinkle</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="card bg-dark">
+                                        <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="35" height="250" class="card-img-top" alt="...">
+                                        <div class="card-body bg-dark text-white">
+                                            <h5 class="card-title">Jordbær sprinkle</h5>
+                                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        </div>
+                                        <div id="comment">
+                                            <div class="card bg-dark text-white" id="commentCard">
+                                                <div class="row">
+                                                    <div class="col-2"> <img src="https://i.imgur.com/xELPaag.jpg" width="70" class="rounded-circle mt-2"> </div>
+                                                    <div class="col-10">
+                                                        <div class="comment-box ml-2">
+                                                            <h4>Add a comment</h4>
+                                                            <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
+                                                            <div class="comment-area"> <textarea class="form-control" placeholder="what is your view?" rows="4"></textarea> </div>
+                                                            <div class="comment-btns mt-2">
+                                                                <div class="row">
+                                                                    <div class="col-6">
+                                                                        <div class="pull-left"> <button class="btn btn-secondary btn-sm">Cancel</button> </div>
+                                                                    </div>
+                                                                    <div class="col-6">
+                                                                        <div class="pull-right" id="commentButton"> <button class="btn btn-secondary send btn-sm">Send <i class="fa fa-long-arrow-right ml-1"></i></button> </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button class="btn btn-secondary" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!__ Modal content3 slutter her -->
             </div>
         </div>
+
+
         <div class="col">
             <div class="card bg-dark bg-dark text-white">
-                <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="250" height="380" class="card-img-top" alt="...">
+                <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="35" height="250" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Vegan cupcake</h5>
+                    <h5 class="card-title">Blåbær cupcake</h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 </div>
                 <div class="Addcupcake">
-                    <button class="addtokurv" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
+                    <button class="btn btn-secondary" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
                 </div>
-            </div>
-        </div>
-    <div class="col">
-        <div class="card bg-dark bg-dark text-white">
-            <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="250" height="380" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Vegan cupcake</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            <div class="Addcupcake">
-                <button class="addtokurv" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card bg-dark bg-dark text-white">
-            <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="250" height="380" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Vegan cupcake</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            <div class="Addcupcake">
-                <button class="addtokurv" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
+                <!__ Modal button4 starter her -->
+                <div>
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#Modal4">
+                        Se mere
+                    </button>
+                </div>
+                <!__ Modal button4 slutter her -->
+
+                <!__ Modal content4 starter her -->
+                <div>
+                    <div class="modal fade" id="Modal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content bg-dark">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle4">Blåbær cupcake</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="card bg-dark">
+                                        <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="35" height="250" class="card-img-top" alt="...">
+                                        <div class="card-body bg-dark text-white">
+                                            <h5 class="card-title">Blåbær cupcake</h5>
+                                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        </div>
+                                        <div id="comment">
+                                            <div class="card bg-dark text-white" id="commentCard">
+                                                <div class="row">
+                                                    <div class="col-2"> <img src="https://i.imgur.com/xELPaag.jpg" width="70" class="rounded-circle mt-2"> </div>
+                                                    <div class="col-10">
+                                                        <div class="comment-box ml-2">
+                                                            <h4>Add a comment</h4>
+                                                            <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
+                                                            <div class="comment-area"> <textarea class="form-control" placeholder="what is your view?" rows="4"></textarea> </div>
+                                                            <div class="comment-btns mt-2">
+                                                                <div class="row">
+                                                                    <div class="col-6">
+                                                                        <div class="pull-left"> <button class="btn btn-secondary btn-sm">Cancel</button> </div>
+                                                                    </div>
+                                                                    <div class="col-6">
+                                                                        <div class="pull-right" id="commentButton"> <button class="btn btn-secondary send btn-sm">Send <i class="fa fa-long-arrow-right ml-1"></i></button> </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button class="btn btn-secondary" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!__ Modal content4 slutter her -->
             </div>
         </div>
 
+
+    <div class="col">
+        <div class="card bg-dark bg-dark text-white">
+            <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="35" height="250" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Kanel cupcake</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+            <div class="Addcupcake">
+                <button class="btn btn-secondary" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
+            </div>
+            <!__ Modal button5 starter her -->
+            <div>
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#Modal5">
+                    Se mere
+                </button>
+            </div>
+            <!__ Modal button5 slutter her -->
+
+            <!__ Modal content5 starter her -->
+            <div>
+                <div class="modal fade" id="Modal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content bg-dark">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle5">Kanel cupcake</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="card bg-dark">
+                                    <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="35" height="250" class="card-img-top" alt="...">
+                                    <div class="card-body bg-dark text-white">
+                                        <h5 class="card-title">Kanel cupcake</h5>
+                                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    </div>
+                                    <div id="comment">
+                                        <div class="card bg-dark text-white" id="commentCard">
+                                            <div class="row">
+                                                <div class="col-2"> <img src="https://i.imgur.com/xELPaag.jpg" width="70" class="rounded-circle mt-2"> </div>
+                                                <div class="col-10">
+                                                    <div class="comment-box ml-2">
+                                                        <h4>Add a comment</h4>
+                                                        <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
+                                                        <div class="comment-area"> <textarea class="form-control" placeholder="what is your view?" rows="4"></textarea> </div>
+                                                        <div class="comment-btns mt-2">
+                                                            <div class="row">
+                                                                <div class="col-6">
+                                                                    <div class="pull-left"> <button class="btn btn-secondary btn-sm">Cancel</button> </div>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <div class="pull-right" id="commentButton"> <button class="btn btn-secondary send btn-sm">Send <i class="fa fa-long-arrow-right ml-1"></i></button> </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button class="btn btn-secondary" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!__ Modal content5 slutter her -->
+        </div>
     </div>
+
+
+    <div class="col">
+        <div class="card bg-dark bg-dark text-white">
+            <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="35" height="250" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Vegan cupcake</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+            <div class="Addcupcake">
+                <button class="btn btn-secondary" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
+            </div>
+            <!__ Modal button6 starter her -->
+            <div>
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#Modal6">
+                    Se mere
+                </button>
+            </div>
+            <!__ Modal button6 slutter her -->
+
+            <!__ Modal content6 starter her -->
+            <div>
+                <div class="modal fade" id="Modal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content bg-dark">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle6">Vegan cupcake</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="card bg-dark">
+                                    <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"width="35" height="250" class="card-img-top" alt="...">
+                                    <div class="card-body bg-dark text-white">
+                                        <h5 class="card-title">Vegan cupcake</h5>
+                                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    </div>
+                                    <div id="comment">
+                                        <div class="card bg-dark text-white" id="commentCard">
+                                            <div class="row">
+                                                <div class="col-2"> <img src="https://i.imgur.com/xELPaag.jpg" width="70" class="rounded-circle mt-2"> </div>
+                                                <div class="col-10">
+                                                    <div class="comment-box ml-2">
+                                                        <h4>Add a comment</h4>
+                                                        <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
+                                                        <div class="comment-area"> <textarea class="form-control" placeholder="what is your view?" rows="4"></textarea> </div>
+                                                        <div class="comment-btns mt-2">
+                                                            <div class="row">
+                                                                <div class="col-6">
+                                                                    <div class="pull-left"> <button class="btn btn-secondary btn-sm">Cancel</button> </div>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <div class="pull-right" id="commentButton"> <button class="btn btn-secondary send btn-sm">Send <i class="fa fa-long-arrow-right ml-1"></i></button> </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button class="btn btn-secondary" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!__ Modal content6 slutter her -->
+        </div>
+    </div>
+
     </div>
 </div>
 </section>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</body>
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script></body>
 </html>
