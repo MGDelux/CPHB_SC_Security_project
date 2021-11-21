@@ -11,6 +11,12 @@ public class Permissions {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int permissionID;
     private String permissionDescription;
+    @Enumerated(EnumType.ORDINAL)
+    private UserPermissions userPerms;
+
+    public UserPermissions getUserPerms() {
+        return userPerms;
+    }
 
     public Permissions() {
 
@@ -22,7 +28,7 @@ public class Permissions {
 
     public Permissions( String permissionDescription, UserPermissions permissions) {
         this.permissionDescription = permissionDescription;
-        this.permissionsx = permissions;
+        this.userPerms = permissions;
     }
 
     public void setPermissionID(int permissionID) {
@@ -30,11 +36,10 @@ public class Permissions {
     }
 
     public UserPermissions getUsersPermissions() {
-        return permissionsx;
+        return userPerms;
     }
 
-    @Enumerated(EnumType.ORDINAL)
-    private UserPermissions permissionsx;
+
 
     public enum UserPermissions {
         //NOTE THIS PERMISSIONS ARE MEANT FOR WEBSITE BASED CHANGES NOT DATABASE CHECK InternalPermissions.Class
@@ -55,7 +60,7 @@ public class Permissions {
         return "Permissions{" +
                 "permissionID=" + permissionID +
                 ", permissionDescription='" + permissionDescription + '\'' +
-                ", permissions=" + permissionsx +
+                ", permissions=" + userPerms +
                 '}';
     }
 }

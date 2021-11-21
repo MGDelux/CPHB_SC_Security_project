@@ -39,9 +39,10 @@
 
                                     <input type="password" name="password" id="password"
                                            class="form-control form-control-lg" placeholder="Password" required/>
+
                                     <label class="form-label" for="Repeatpassword">Repeat Password</label>
 
-                                    <input type="password" name="Repeatpassword" id="Repeatpassword"
+                                    <input type="password" name="RetypedPassword" id="Repeatpassword"
                                            class="form-control form-control-lg" placeholder="Repeat your password"
                                            required/>
 
@@ -61,9 +62,12 @@
 
 
                             </div>
+<div>
+    <p class="mb-0">Password requirments: minimum length 8, One upper case letter, 1 number</p>
 
+</div>
                             <div>
-                                <p class="mb-0">Already have an account? <a
+                                  <p class="mb-0">Already have an account? <a
                                         href="${pageContext.request.contextPath}/login/" class="text-danger fw-bold">Sign
                                     In</a></p>
                             </div>

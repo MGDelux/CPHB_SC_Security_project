@@ -19,7 +19,6 @@ public class Admin extends BaseServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         if (getUser(req,resp,"Please log in admin.")!=null){
         if (getUser(req,resp,"you do not have the correct permissions").checkForPermission(Permissions.UserPermissions.VIEW_ADMIN_PAGE)){
             setUp(req, resp);
@@ -37,7 +36,5 @@ public class Admin extends BaseServlet {
             log(toLog);
 
         }
-
-
     }
 }

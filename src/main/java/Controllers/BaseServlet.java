@@ -3,10 +3,12 @@ package Controllers;
 import Controllers.widget.Navbar;
 import Models.Store.Log;
 import Models.Users.BaseUser;
+import Persistence.ProductPerstistence;
 import Persistence.UserLogin;
 import Persistence.UserPresistence;
 import Persistence.UserRegister;
 import Service.LoginService;
+import Service.ProductService;
 import Service.RegisterService;
 import Service.UserService;
 
@@ -27,20 +29,22 @@ public class BaseServlet extends HttpServlet {
     protected static final UserRegister REGISTER_SERVICE;
     protected static final UserLogin LOGIN_SERVICE;
     protected static final UserPresistence USER_SERVICE;
+    protected static final ProductPerstistence PRODUCT_SERVICE;
+
     static {
+        PRODUCT_SERVICE = getProductService();
         USER_SERVICE = getUserService();
-    }
-
-    static {
         LOGIN_SERVICE = getLoginService();
-    }
-
-    static {
         REGISTER_SERVICE = getRegisterService();
     }
+    private static ProductPerstistence getProductService() {
+        ProductService productService = new ProductService();
+        return new ProductPerstistence(productService);
+    }
+
     public static UserPresistence getUserService() {
-    UserService userService = new UserService();
-    return new UserPresistence(userService);
+        UserService userService = new UserService();
+        return new UserPresistence(userService);
     }
 
     public static UserLogin getLoginService() {
@@ -58,7 +62,7 @@ public class BaseServlet extends HttpServlet {
         HttpSession session = request.getSession();
         BaseUser user = (BaseUser) session.getAttribute("user");
         if (user == null) {
-            session.setAttribute("loggedIn", errorMsgIfNull);
+            session.setAttribute("loggedInStatus", errorMsgIfNull);
             response.sendRedirect(request.getContextPath() + "/login/");
         }
         return user;
@@ -72,7 +76,7 @@ public class BaseServlet extends HttpServlet {
     protected void render(String title, String content, HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         req.setAttribute("indexNavbar", new Navbar(req));
-        //  req.setAttribute("navbar", new Navbar(req));
+        req.setAttribute("navbar", new Navbar(req));
         req.setAttribute("title", title);
         req.setAttribute("content", content);
         req.getRequestDispatcher(content).forward(req, resp);

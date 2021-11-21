@@ -23,9 +23,6 @@ public class Login extends BaseServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         setUp(req, resp);
-   if (req.getAttribute("loggedIn").equals(true)){
-       render("index", "/WEB-INF/pages/index.jsp", req, resp);
-   }
         render("login page", "/login.jsp", req, resp);
     }
 

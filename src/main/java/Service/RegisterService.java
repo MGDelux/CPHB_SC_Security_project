@@ -1,7 +1,5 @@
 package Service;
 
-import Config.ErrorHandling.UserAlreadyExisting;
-import Config.ErrorHandling.UserInternalError;
 import Config.ErrorHandling.WebPermissionException;
 import Dependencies.EMF_Creator;
 import Models.Users.BaseUser;
@@ -10,7 +8,6 @@ import Service.Interfaces.IRegisterService;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
 

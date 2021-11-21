@@ -28,7 +28,7 @@ public class BaseUser implements Serializable {
     @Column(name="Name")
     private String username;
     @NotNull
-    @Size(min = 4, max = 255)
+    @Size(min = 5, max = 255)
     @Column(name="Password")
     private String saltedPassword;
     @Column(name="ProfilePicture")
