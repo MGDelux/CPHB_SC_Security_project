@@ -39,8 +39,6 @@ public class Permissions {
         return userPerms;
     }
 
-
-
     public enum UserPermissions {
         //NOTE THIS PERMISSIONS ARE MEANT FOR WEBSITE BASED CHANGES NOT DATABASE CHECK InternalPermissions.Class
         CREATE_PRODUCT,
