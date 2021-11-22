@@ -100,8 +100,8 @@
                                                     a natural lead-in to additional content. This content is a little
                                                     bit longer.</p>
                                             </div>
-                                            <div id="comment">
-                                                <div class="card bg-dark text-white" id="commentCard">
+                                            <div id="comment1">
+                                                <div class="card bg-dark text-white" id="commentCard1">
                                                     <div class="row">
                                                         <div class="col-2"><img src="https://i.imgur.com/xELPaag.jpg"
                                                                                 width="70" class="rounded-circle mt-2">
@@ -138,7 +138,7 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-6">
-                                                                            <div class="pull-right" id="commentButton">
+                                                                            <div class="pull-right" id="commentButton1">
                                                                                 <button class="btn btn-secondary send btn-sm">
                                                                                     Send <i
                                                                                         class="fa fa-long-arrow-right ml-1"></i>
@@ -167,8 +167,8 @@
                             <!__ Modal content1 slutter her -->
                         </div>
                     </div>
-
-
+                </div>
+            </div>
                     <div class="col">
                         <div class="card bg-dark">
                             <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"
@@ -215,8 +215,8 @@
                                                             below as a natural lead-in to additional content. This
                                                             content is a little bit longer.</p>
                                                     </div>
-                                                    <div id="comment">
-                                                        <div class="card bg-dark text-white" id="commentCard">
+                                                    <div id="comment2">
+                                                        <div class="card bg-dark text-white" id="commentCard2">
                                                             <div class="row">
                                                                 <div class="col-2"><img
                                                                         src="https://i.imgur.com/xELPaag.jpg" width="70"
@@ -260,7 +260,7 @@
                                                                                 </div>
                                                                                 <div class="col-6">
                                                                                     <div class="pull-right"
-                                                                                         id="commentButton">
+                                                                                         id="commentButton2">
                                                                                         <button class="btn btn-secondary send btn-sm">
                                                                                             Send <i
                                                                                                 class="fa fa-long-arrow-right ml-1"></i>
@@ -291,10 +291,10 @@
                             <!__ Modal content2 slutter her -->
                         </div>
                     </div>
+                 </div>
 
-                    <div class="row"></div>
 
-                    <div class="col">
+        <div class="col">
                         <div class="card bg-dark bg-dark text-white">
                             <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"
                                  width="35" height="250" class="card-img-top" alt="...">
@@ -341,8 +341,8 @@
                                                             below as a natural lead-in to additional content. This
                                                             content is a little bit longer.</p>
                                                     </div>
-                                                    <div id="comment">
-                                                        <div class="card bg-dark text-white" id="commentCard">
+                                                    <div id="comment3">
+                                                        <div class="card bg-dark text-white" id="commentCard3">
                                                             <div class="row">
                                                                 <div class="col-2"><img
                                                                         src="https://i.imgur.com/xELPaag.jpg" width="70"
@@ -386,7 +386,7 @@
                                                                                 </div>
                                                                                 <div class="col-6">
                                                                                     <div class="pull-right"
-                                                                                         id="commentButton">
+                                                                                         id="commentButton3">
                                                                                         <button class="btn btn-secondary send btn-sm">
                                                                                             Send <i
                                                                                                 class="fa fa-long-arrow-right ml-1"></i>
@@ -415,9 +415,10 @@
                                     <!__ Modal content3 slutter her -->
                                 </div>
                             </div>
+                        </div>
+                    </div>
 
-
-                            <div class="col">
+        <div class="col">
                                 <div class="card bg-dark bg-dark text-white">
                                     <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"
                                          width="35" height="250" class="card-img-top" alt="...">
@@ -466,8 +467,8 @@
                                                                     additional content. This content is a little bit
                                                                     longer.</p>
                                                             </div>
-                                                            <div id="comment">
-                                                                <div class="card bg-dark text-white" id="commentCard">
+                                                            <div id="comment4">
+                                                                <div class="card bg-dark text-white" id="commentCard4">
                                                                     <div class="row">
                                                                         <div class="col-2"><img
                                                                                 src="https://i.imgur.com/xELPaag.jpg"
@@ -507,7 +508,7 @@
                                                                                         </div>
                                                                                         <div class="col-6">
                                                                                             <div class="pull-right"
-                                                                                                 id="commentButton">
+                                                                                                 id="commentButton4">
                                                                                                 <button class="btn btn-secondary send btn-sm">
                                                                                                     Send <i
                                                                                                         class="fa fa-long-arrow-right ml-1"></i>
@@ -537,9 +538,10 @@
                                             <!__ Modal content4 slutter her -->
                                         </div>
                                     </div>
+                                </div>
+                            </div>
 
-
-                                    <div class="col">
+        <div class="col">
                                         <div class="card bg-dark bg-dark text-white">
                                             <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"
                                                  width="35" height="250" class="card-img-top" alt="...">
@@ -589,9 +591,9 @@
                                                                             to additional content. This content is a
                                                                             little bit longer.</p>
                                                                     </div>
-                                                                    <div id="comment">
+                                                                    <div id="comment5">
                                                                         <div class="card bg-dark text-white"
-                                                                             id="commentCard">
+                                                                             id="commentCard5">
                                                                             <div class="row">
                                                                                 <div class="col-2"><img
                                                                                         src="https://i.imgur.com/xELPaag.jpg"
@@ -639,7 +641,7 @@
                                                                                                 </div>
                                                                                                 <div class="col-6">
                                                                                                     <div class="pull-right"
-                                                                                                         id="commentButton">
+                                                                                                         id="commentButton5">
                                                                                                         <button class="btn btn-secondary send btn-sm">
                                                                                                             Send <i
                                                                                                                 class="fa fa-long-arrow-right ml-1"></i>
@@ -669,9 +671,10 @@
                                                     <!__ Modal content5 slutter her -->
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
 
-
-                                            <div class="col">
+        <div class="col">
                                                 <div class="card bg-dark bg-dark text-white">
                                                     <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"
                                                          width="35" height="250" class="card-img-top" alt="...">
@@ -726,9 +729,9 @@
                                                                                     content. This content is a little
                                                                                     bit longer.</p>
                                                                             </div>
-                                                                            <div id="comment">
+                                                                            <div id="comment6">
                                                                                 <div class="card bg-dark text-white"
-                                                                                     id="commentCard">
+                                                                                     id="commentCard6">
                                                                                     <div class="row">
                                                                                         <div class="col-2"><img
                                                                                                 src="https://i.imgur.com/xELPaag.jpg"
@@ -782,7 +785,7 @@
                                                                                                         </div>
                                                                                                         <div class="col-6">
                                                                                                             <div class="pull-right"
-                                                                                                                 id="commentButton">
+                                                                                                                 id="commentButton6">
                                                                                                                 <button class="btn btn-secondary send btn-sm">
                                                                                                                     Send
                                                                                                                     <i class="fa fa-long-arrow-right ml-1"></i>
@@ -813,9 +816,11 @@
                                                             <!__ Modal content6 slutter her -->
                                                         </div>
                                                     </div>
-
                                                 </div>
                                             </div>
+
+    </div>
+
 </section>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
