@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.List;
 
 @Entity(name="Users")
@@ -27,7 +28,7 @@ public class BaseUser implements Serializable {
     @Column(name="Name")
     private String username;
     @NotNull
-    @Size(min = 4, max = 255)
+    @Size(min = 5, max = 255)
     @Column(name="Password")
     private String saltedPassword;
     @Column(name="ProfilePicture")
@@ -115,4 +116,17 @@ public class BaseUser implements Serializable {
     }
 
 //TODO DTO TOSTRING()
+
+    @Override
+    public String toString() {
+        return "BaseUser{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                ", saltedPassword='" + saltedPassword + '\'' +
+                ", profilePicture=" + Arrays.toString(profilePicture) +
+                ", userPermissions=" + userPermissions +
+                ", customerInfomation=" + customerInfomation +
+                '}';
+    }
 }

@@ -3,8 +3,14 @@ package Controllers;
 import Controllers.widget.Navbar;
 import Models.Store.Log;
 import Models.Users.BaseUser;
+import Persistence.ProductPerstistence;
+import Persistence.UserLogin;
+import Persistence.UserPresistence;
 import Persistence.UserRegister;
+import Service.LoginService;
+import Service.ProductService;
 import Service.RegisterService;
+import Service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,10 +27,31 @@ This servlet is a general servlet. You should create a servles for each type of 
 @WebServlet(name = "BaseServlet")
 public class BaseServlet extends HttpServlet {
     protected static final UserRegister REGISTER_SERVICE;
+    protected static final UserLogin LOGIN_SERVICE;
+    protected static final UserPresistence USER_SERVICE;
+    protected static final ProductPerstistence PRODUCT_SERVICE;
 
     static {
+        PRODUCT_SERVICE = getProductService();
+        USER_SERVICE = getUserService();
+        LOGIN_SERVICE = getLoginService();
         REGISTER_SERVICE = getRegisterService();
     }
+    private static ProductPerstistence getProductService() {
+        ProductService productService = new ProductService();
+        return new ProductPerstistence(productService);
+    }
+
+    public static UserPresistence getUserService() {
+        UserService userService = new UserService();
+        return new UserPresistence(userService);
+    }
+
+    public static UserLogin getLoginService() {
+        LoginService loginService = new LoginService();
+        return new UserLogin(loginService);
+    }
+
     public static UserRegister getRegisterService() {
         RegisterService registerService = new RegisterService();
         return new UserRegister(registerService);
@@ -35,7 +62,7 @@ public class BaseServlet extends HttpServlet {
         HttpSession session = request.getSession();
         BaseUser user = (BaseUser) session.getAttribute("user");
         if (user == null) {
-            session.setAttribute("loggedIn", errorMsgIfNull);
+            session.setAttribute("loggedInStatus", errorMsgIfNull);
             response.sendRedirect(request.getContextPath() + "/login/");
         }
         return user;
@@ -48,13 +75,13 @@ public class BaseServlet extends HttpServlet {
 
     protected void render(String title, String content, HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-       req.setAttribute("indexNavbar", new Navbar(req));
-      //  req.setAttribute("navbar", new Navbar(req));
+        req.setAttribute("indexNavbar", new Navbar(req));
+        req.setAttribute("navbar", new Navbar(req));
         req.setAttribute("title", title);
         req.setAttribute("content", content);
         req.getRequestDispatcher(content).forward(req, resp);
-       Log log = new Log(Log.WarnLevel.LOW_RISK,req,"Render");
-       log(log);
+        Log log = new Log(Log.WarnLevel.LOW_RISK, req, "Render");
+        log(log);
 
     }
 

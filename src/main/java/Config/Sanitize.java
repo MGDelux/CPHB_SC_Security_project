@@ -14,5 +14,5 @@ public class Sanitize extends BaseServlet {
             .allowAttributes("href").onElements("a")
             .requireRelNofollowOnLinks()
             .toFactory();
-    String safeHTML = policy.sanitize(untrustedHTML);
+  //  String safeHTML = policy.sanitize(untrustedHTML);
 }

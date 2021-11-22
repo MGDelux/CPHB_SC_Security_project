@@ -15,10 +15,9 @@ import javax.net.ssl.HttpsURLConnection;
  * CREATED BY mathias @ 18-11-2021 - 14:41
  **/
 public class VerifyRecaptcha {
-
-    public static final String url = "https://www.google.com/recaptcha/api/siteverify";
-    public static final String secret = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"; //TEST SECRET
     private final static String USER_AGENT = "Mozilla/5.0";
+    public static final String RECAPTCHA_API_URL = "https://www.google.com/recaptcha/api/siteverify";
+    public static final String API_KEY_SECRET = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"; //TEST SECRET
 
     public static boolean verify(String gRecaptchaResponse) throws IOException {
         if (gRecaptchaResponse == null || "".equals(gRecaptchaResponse)) {
@@ -26,7 +25,7 @@ public class VerifyRecaptcha {
         }
 
         try{
-            URL obj = new URL(url);
+            URL obj = new URL(RECAPTCHA_API_URL);
             HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
 
             // add reuqest header
@@ -34,7 +33,7 @@ public class VerifyRecaptcha {
             con.setRequestProperty("User-Agent", USER_AGENT);
             con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
 
-            String postParams = "secret=" + secret + "&response="
+            String postParams = "secret=" + API_KEY_SECRET + "&response="
                     + gRecaptchaResponse;
 
             // Send post request
@@ -44,11 +43,10 @@ public class VerifyRecaptcha {
             wr.flush();
             wr.close();
 
-            int responseCode = con.getResponseCode();
             BufferedReader in = new BufferedReader(new InputStreamReader(
                     con.getInputStream()));
             String inputLine;
-            StringBuffer response = new StringBuffer();
+            StringBuilder response = new StringBuilder();
 
             while ((inputLine = in.readLine()) != null) {
                 response.append(inputLine);

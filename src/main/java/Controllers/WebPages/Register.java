@@ -1,6 +1,7 @@
 package Controllers.WebPages;
 
 import Config.ErrorHandling.UserInternalError;
+import Config.PasswordStrengthValidation;
 import Config.VerifyRecaptcha;
 import Controllers.BaseServlet;
 
@@ -32,26 +33,34 @@ public class Register extends BaseServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        String retypedPassword = request.getParameter("RetypedPassword");
         String gRecaptchaResponse = request.getParameter("g-recaptcha-response");
-        try {
+        try { //NESTED IF STATEMENTS FTW /S
+            if (password.equals(retypedPassword) && PasswordStrengthValidation.ValidatePWStrength(password) ){
             if (VerifyRecaptcha.verify(gRecaptchaResponse) && getRegisterService().checkIfUserInSystem(email, password)) {
                 getRegisterService().register(email, password);
                 request.setAttribute("SuccessFullReq","You have been successfully registered");
                 response.sendRedirect(request.getContextPath()+"/login");
-
             }else {
-                if (!VerifyRecaptcha.verify(gRecaptchaResponse)){
-                    request.setAttribute("ReqError","Recaptcha Error please do the reCAPTCHA again.");
+                if (!VerifyRecaptcha.verify(gRecaptchaResponse)) {
+                    request.setAttribute("ReqError", "Recaptcha Error please do the reCAPTCHA again.");
 
-                }else {
+                } else {
                     request.setAttribute("ReqError", "Email is already registered to a user");
+
                 }
+            }
                 request.removeAttribute("email");
                 request.removeAttribute("password");
                 request.removeAttribute("g-recaptcha-response");
-                doGet(request,response);
-
             }
+            else if (!PasswordStrengthValidation.ValidatePWStrength(password)){
+                request.setAttribute("ReqError", "Passwords is not strong enough");
+
+            }else {
+                request.setAttribute("ReqError", "Passwords does not match");
+            }
+            doGet(request,response);
 
         } catch (UserInternalError userInternalError) {
             userInternalError.printStackTrace();
