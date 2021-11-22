@@ -31,6 +31,9 @@ public class Product{
         this.productsInStock = productsInStock;
     }
 
+    public Long getProductID() {
+        return productID;
+    }
 
     public String getProductName() {
         return productName;

@@ -18,9 +18,8 @@ public class Customer implements Serializable {
     Address address;
     double storeCredit;
 
-    public Customer(boolean isCustomer, Address address, double storeCredit) {
+    public Customer(boolean isCustomer, double storeCredit) {
         this.isCustomer = isCustomer;
-        this.address = address;
         this.storeCredit = storeCredit;
     }
 

@@ -3,14 +3,8 @@ package Controllers;
 import Controllers.widget.Navbar;
 import Models.Store.Log;
 import Models.Users.BaseUser;
-import Persistence.ProductPerstistence;
-import Persistence.UserLogin;
-import Persistence.UserPresistence;
-import Persistence.UserRegister;
-import Service.LoginService;
-import Service.ProductService;
-import Service.RegisterService;
-import Service.UserService;
+import Persistence.*;
+import Service.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,14 +24,21 @@ public class BaseServlet extends HttpServlet {
     protected static final UserLogin LOGIN_SERVICE;
     protected static final UserPresistence USER_SERVICE;
     protected static final ProductPerstistence PRODUCT_SERVICE;
+    protected static final CommentPersistence COMMENT_SERVICE;
 
     static {
+        COMMENT_SERVICE = getCommentService();
         PRODUCT_SERVICE = getProductService();
         USER_SERVICE = getUserService();
         LOGIN_SERVICE = getLoginService();
-        REGISTER_SERVICE = getRegisterService();
+        REGISTER_SERVICE = getRegisterService(); }
+
+    private static CommentPersistence getCommentService() {
+        CommentService commentService = new CommentService();
+        return new CommentPersistence(commentService);
     }
-    private static ProductPerstistence getProductService() {
+
+    public static ProductPerstistence getProductService() {
         ProductService productService = new ProductService();
         return new ProductPerstistence(productService);
     }
