@@ -59,7 +59,7 @@
                             <div class="text-danger fw-bold">
                                 <c:if test="${requestScope.ReqError != null}">
                                     ${requestScope.ReqError}
-
+                                </c:if>
 
                             </div>
 <div>

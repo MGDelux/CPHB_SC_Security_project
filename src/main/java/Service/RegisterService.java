@@ -3,6 +3,7 @@ package Service;
 import Config.ErrorHandling.WebPermissionException;
 import Dependencies.EMF_Creator;
 import Models.Users.BaseUser;
+import Models.Users.Customer;
 import Models.Users.Permissions;
 import Service.Interfaces.IRegisterService;
 
@@ -44,6 +45,8 @@ public class RegisterService implements IRegisterService {
         EntityManager em = emf.createEntityManager();
         BaseUser NewUser = new BaseUser(email, password);
         List<Permissions> permissions = new ArrayList<>();
+        Customer customer = new Customer(true,2500);
+        NewUser.setCustomerInfomation(customer);
         Permissions permissions1 = new Permissions("View Personal Page", Permissions.UserPermissions.VIEW_PERSONAL_USER_PAGE);
         Permissions permissions2 = new Permissions("Add products to basket", Permissions.UserPermissions.ADD_TO_BASKET);
         Permissions permissions3 = new Permissions("Upload profile picture", Permissions.UserPermissions.UPLOAD_PROFILE_PICTURE);
@@ -53,6 +56,7 @@ public class RegisterService implements IRegisterService {
         try {
             NewUser.setUserPermissions(permissions);
             em.getTransaction().begin();
+            em.persist(customer);
             em.merge(NewUser);
             em.getTransaction().commit();
         } catch (Exception e) {
