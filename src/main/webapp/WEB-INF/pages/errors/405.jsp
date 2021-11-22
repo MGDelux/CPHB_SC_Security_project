@@ -22,7 +22,6 @@
 
                     <div class="inner-circle"><i class="fa fa-cogs"></i><span>405</span></div>
                     <span class="inner-status">Opps! Method not allowed!</span>
-                    <span class="inner-detail">Check your code and see if you made a mistake.</span>
 
                     <div class="signup-link">
                     GO BACK? <a href="${pageContext.request.contextPath}">klik her.</a></div>
