@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.Serializable;
 
 
 /**
@@ -27,28 +28,53 @@ public class Login extends BaseServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException, ServletException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        boolean allowLogin;
+
+        int login_attempts;
+        if (req.getSession().getAttribute("loginCount") == null) {
+            System.out.println("init counter");
+            req.getSession().setAttribute("loginCount", 0);
+            login_attempts = 0;
+        } else {
+            login_attempts = (int) req.getSession().getAttribute("loginCount");
+        }
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         String gRecaptchaResponse = req.getParameter("g-recaptcha-response");
+        login_attempts++;
+        req.getSession().setAttribute("loginCount", login_attempts);
+        if (login_attempts >= 3) {
+            allowLogin = false;
+        } else {
+            allowLogin = true;
+        }
         try {
+
+
             BaseUser user = getUserService().getUser(email);
-            if (getLoginService().verifyCredentials(user, password) && VerifyRecaptcha.verify(gRecaptchaResponse)) {
-          req.getSession().setAttribute("user", user);
-          req.getSession().setAttribute("loggedIn", true);
-                System.err.print("USER LOGGED IN SUCESSFULLY");
-
+            if (getLoginService().verifyCredentials(user, password) && VerifyRecaptcha.verify(gRecaptchaResponse) && allowLogin) {
+                req.getSession().setAttribute("user", user);
+                req.getSession().setAttribute("loggedIn", true);
+                req.changeSessionId();
                 resp.sendRedirect(req.getContextPath() + "/");
-            }else {
-                doGet(req,resp);
-            }
+            } else {
+                req.setAttribute("LogInError", "Email or password incorrect ");
+                if (!allowLogin) {
+                    req.setAttribute("LogInError", "Login not allowed, too many failed attempts");
+                }
+                doGet(req, resp);
 
+            }
         } catch (Exception loginError) { //TODO: FIX
-            req.setAttribute("error", loginError.getMessage());
+
+            req.setAttribute("LogInError", "Email or password incorrect ");
+            if (!allowLogin) {
+                req.setAttribute("LogInError", "Login not allowed, too many failed attempts");
+            }
             System.out.println("error " + loginError.getMessage());
             doGet(req, resp);
-            return;
+
         }
 
 

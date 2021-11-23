@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * CREATED BY mathias @ 22-11-2021 - 13:36
  **/
-class ProductServiceTest {
+    class ProductServiceTest {
     private static EntityManagerFactory emf;
 
     @Test

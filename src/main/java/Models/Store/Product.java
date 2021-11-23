@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import java.util.Arrays;
 
 /**
  * CREATED BY mathias @ 14-11-2021 - 14:07
@@ -73,5 +74,17 @@ public class Product{
 
     public void setProductPicture(byte[] productPicture) {
         ProductPicture = productPicture;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productID=" + productID +
+                ", productName='" + productName + '\'' +
+                ", productDescription='" + productDescription + '\'' +
+                ", productPrice=" + productPrice +
+                ", productsInStock=" + productsInStock +
+                ", ProductPicture=" + Arrays.toString(ProductPicture) +
+                '}';
     }
 }
