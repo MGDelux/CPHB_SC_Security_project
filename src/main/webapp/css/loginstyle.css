@@ -4,3 +4,7 @@
 error-text {
     color: #bf1717;
 }
+
+.g-recaptcha {
+    margin-left: 60px;
+}
