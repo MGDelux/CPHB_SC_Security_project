@@ -17,4 +17,13 @@ public class ProductRating {
     int rating;
     @OneToOne(targetEntity = ProductComment.class, cascade = CascadeType.PERSIST,fetch =  FetchType.EAGER)
     ProductComment productComment;
+
+    public ProductRating() {
+
+    }
+
+    public ProductRating(@Size(min = 1, max = 5) int rating) {
+        this.rating = rating;
+
+    }
 }

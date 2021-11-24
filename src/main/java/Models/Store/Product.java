@@ -1,11 +1,9 @@
 package Models.Store;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * CREATED BY mathias @ 14-11-2021 - 14:07
@@ -21,6 +19,8 @@ public class Product{
     private double productPrice;
     private int productsInStock;
     private byte[] ProductPicture;
+    @OneToMany(targetEntity = ProductComment.class,cascade = CascadeType.PERSIST,fetch =  FetchType.EAGER)
+    private List<ProductComment> productComments;
 
     public Product(){
     }
@@ -34,6 +34,14 @@ public class Product{
 
     public Long getProductID() {
         return productID;
+    }
+
+    public List<ProductComment> getProductComments() {
+        return productComments;
+    }
+
+    public void setProductComments(List<ProductComment> productComments) {
+        this.productComments = productComments;
     }
 
     public String getProductName() {

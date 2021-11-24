@@ -3,6 +3,7 @@ package Controllers.WebPages;
 import Controllers.BaseServlet;
 import Models.Store.Log;
 import Models.Store.Product;
+import Models.Store.ProductComment;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,23 +23,35 @@ public class index extends BaseServlet {
         super.setUp(req, resp);
     }
 
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("post");
+        if (req.getParameter("AddCupcakeToKurv") != null) {
+        Product productToBasket = getProductService().getSpecificProduct(Long.parseLong(req.getParameter("productId")));
+            System.out.println(productToBasket);
+
+        } else if (req.getParameter("PostComment") != null) {
+            System.out.println("post comment");
+        }
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException, ServletException, IOException {
         List<Product> productList = new ArrayList<>();
         setUp(req, resp);
         try {
-            if (getProductService().getAllProducts()==null || getProductService().getAllProducts().isEmpty()){
+            if (getProductService().getAllProducts() == null || getProductService().getAllProducts().isEmpty()) {
                 //throw new exception yada
-                req.setAttribute("productsInStore",false);
-                System.out.println("no products");
-            }else {
+                req.setAttribute("productsInStore", false);
+            } else {
                 productList.addAll(getProductService().getAllProducts());
                 req.setAttribute("productsInStore", true);
 
                 req.setAttribute("products", productList);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
 

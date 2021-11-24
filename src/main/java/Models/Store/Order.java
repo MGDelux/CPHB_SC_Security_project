@@ -6,9 +6,9 @@ package Models.Store;
  **/
 public class Order {
     double orderID;
-    CustomerCart orderInformation;
+    CustomerBasket orderInformation;
 
-    public Order(double orderID, CustomerCart orderInformation) {
+    public Order(double orderID, CustomerBasket orderInformation) {
         this.orderID = orderID;
         this.orderInformation = orderInformation;
     }

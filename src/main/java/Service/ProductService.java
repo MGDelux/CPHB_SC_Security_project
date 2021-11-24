@@ -8,6 +8,7 @@ import Service.Interfaces.IProductService;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,8 @@ import java.util.List;
  * CREATED BY mathias @ 21-11-2021 - 18:43
  **/
 public class ProductService implements IProductService {
-    private static EntityManagerFactory emf;
+    private static final EntityManagerFactory emf = EMF_Creator.createEntityManagerFactory();
+
 
     @Override
     public Product createNewProduct(BaseUser user, Product product) throws Exception {
@@ -45,7 +47,6 @@ public class ProductService implements IProductService {
 
     @Override
     public List<Product> getAllProducts() {
-        emf = EMF_Creator.createEntityManagerFactoryForTest();
         List<Product> productList = new ArrayList<>();
         try {
             EntityManager em = emf.createEntityManager();
@@ -60,7 +61,13 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public Product getSpecificProduct(BaseUser user, Product product) {
-        return null;
+    public Product getSpecificProduct(long product) {
+        EntityManager em = emf.createEntityManager();
+        try {
+         return em.find(Product.class,product);
+        }catch (EntityNotFoundException e){
+            throw new EntityNotFoundException();
+        }
+
     }
 }

@@ -33,7 +33,6 @@ public class Login extends BaseServlet {
 
         int login_attempts;
         if (req.getSession().getAttribute("loginCount") == null) {
-            System.out.println("init counter");
             req.getSession().setAttribute("loginCount", 0);
             login_attempts = 0;
         } else {

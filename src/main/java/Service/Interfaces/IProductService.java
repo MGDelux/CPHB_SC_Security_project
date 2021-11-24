@@ -13,5 +13,5 @@ public interface IProductService {
     Product deleteProduct(BaseUser user, Product product);
     Product modifyProduct(BaseUser user, Product product);
     List<Product> getAllProducts();
-    Product getSpecificProduct(BaseUser user, Product product);
+    Product getSpecificProduct(long product);
 }

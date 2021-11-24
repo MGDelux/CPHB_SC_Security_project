@@ -62,17 +62,21 @@
         <c:choose>
         <c:when test="${requestScope.productsInStore != false}">
         <c:forEach items="${products}" var="product">
-        <div class="col">
+            <form method="post">
+
+
+            <div class="col"  id="">
             <div class="card bg-dark">
                 <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"
                      width="35" height="250" class="card-img-top" alt="...">
 
                 <div class="card-body bg-dark text-white">
 
-                    <h5 class="card-title">${product.productName}</h5>
+                    <h5 id="Pepega" class="card-title">${product.productName} - ${product.productID} </h5>
                     <p class="card-text">${product.productDescription}</p>
                 </div>
                 <div class="Addcupcake">
+                    <input name="productId" value="${product.productID}" type="text">
                     <button class="btn btn-secondary" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
                 </div>
 
@@ -84,8 +88,9 @@
                     </button>
                 </div>
             </div>
-        </div>
-            </c:forEach>
+            </form>
+
+    </div></c:forEach>
 
             <!__ Modal button1 slutter her -->
 
@@ -126,26 +131,18 @@
                                             <div class="col-10">
                                                 <div class="comment-box ml-2">
                                                     <h4>Add a comment</h4>
-                                                    <div class="rating"><input type="radio"
-                                                                               name="rating"
-                                                                               value="5" id="5"><label
-                                                            for="5">☆</label> <input type="radio"
-                                                                                     name="rating"
-                                                                                     value="4"
-                                                                                     id="4"><label
-                                                            for="4">☆</label> <input type="radio"
+                                                    <div class="rating">
+                                                        <input type="radio" name="rating" value="5" id="5${productInformation.productID}"><label for="5${productInformation.productID}">☆</label>
+                                                        <input type="radio" id="4"><label for="4">☆</label> <input type="radio"
                                                                                      name="rating"
                                                                                      value="3"
-                                                                                     id="3"><label
-                                                            for="3">☆</label> <input type="radio"
+                                                                                     id="3${productInformation.productID}"><label for="3${productInformation.productID}">☆</label> <input type="radio"
                                                                                      name="rating"
                                                                                      value="2"
-                                                                                     id="2"><label
-                                                            for="2">☆</label> <input type="radio"
+                                                                                     id="2${productInformation.productID}"><label for="2${productInformation.productID}">☆</label> <input type="radio"
                                                                                      name="rating"
                                                                                      value="1"
-                                                                                     id="1"><label
-                                                            for="1">☆</label></div>
+                                                                                     id="1${productInformation.productID}"><label for="1${productInformation.productID}">☆</label></div>
                                                     <div class="comment-area"><textarea
                                                             class="form-control"
                                                             placeholder="what is your view?"
@@ -163,7 +160,7 @@
                                                             <div class="col-6">
                                                                 <div class="pull-right"
                                                                      id="commentButton">
-                                                                    <button class="btn btn-secondary send btn-sm">
+                                                                    <button name="PostComment" class="btn btn-secondary send btn-sm" type="submit       ">
                                                                         Send <i
                                                                             class="fa fa-long-arrow-right ml-1"></i>
                                                                     </button>
@@ -181,7 +178,7 @@
                                             data-dismiss="modal">
                                         Close
                                     </button>
-                                    <button class="btn btn-secondary" name="AddCupcakeToKurv"
+                                    <button class="btn btn-secondary" name="AddCupcakeToKurv2"
                                             type="submit">
                                         Tilføj til kurv
                                     </button>
@@ -193,7 +190,7 @@
 
             </div>
         </div>
-
+            </form>
 
         </c:forEach>
         </c:when>

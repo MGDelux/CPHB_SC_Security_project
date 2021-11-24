@@ -32,8 +32,8 @@ public class ProductPerstistence {
         return productService.getAllProducts();
     }
 
-    public  Product getSpecificProduct(BaseUser user, Product product) {
-        return productService.getSpecificProduct(user, product);
+    public  Product getSpecificProduct(long  product) {
+        return productService.getSpecificProduct(product);
     }
 
 
