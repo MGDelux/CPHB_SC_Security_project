@@ -37,7 +37,16 @@ public class BaseUser implements Serializable {
     private List<Permissions> userPermissions;
     @OneToOne(cascade = CascadeType.PERSIST)
     private Customer customerInfomation;
+    @Column(name="Login_status")
+    private boolean isLoggedIn;
 
+    public boolean isLoggedIn() {
+        return isLoggedIn;
+    }
+
+    public void setLoggedIn(boolean loggedIn) {
+        isLoggedIn = loggedIn;
+    }
 
     public String getSaltedPassword() {
         return saltedPassword;

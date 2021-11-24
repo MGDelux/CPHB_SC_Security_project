@@ -15,15 +15,21 @@ public class UserLogin {
         this.userLogin = ILoginService;
     }
 
-    public boolean verifyCredentials(BaseUser user, String password){
-       return this.userLogin.verifyCredentials(user, password);
-    }
-    public boolean logout(BaseUser user, HttpServletRequest request){
-    return this.logout(user, request);
-    }
-    public boolean isLoggedin(BaseUser user, HttpServletRequest request){
-        return this.isLoggedin(user, request);
+    public boolean verifyCredentials(BaseUser user, String password) {
+        return this.userLogin.verifyCredentials(user, password);
     }
 
+    public boolean logout(BaseUser user, HttpServletRequest request) {
+        return this.logout(user, request);
+    }
 
+    public void SetLoggedin(BaseUser user) throws Exception {
+        this.userLogin.SetLoggedin(user);
+    }
+
+    public boolean isLoggedIn(BaseUser user, HttpServletRequest request) {
+
+        return this.userLogin.isLoggedIn(user, request);
+
+    }
 }

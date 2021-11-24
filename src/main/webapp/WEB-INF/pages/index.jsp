@@ -76,7 +76,7 @@
                     <p class="card-text">${product.productDescription}</p>
                 </div>
                 <div class="Addcupcake">
-                    <input name="productId" value="${product.productID}" type="text">
+                    <input name="productId" value="${product.productID}" type="hidden">
                     <button class="btn btn-secondary" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
                 </div>
 

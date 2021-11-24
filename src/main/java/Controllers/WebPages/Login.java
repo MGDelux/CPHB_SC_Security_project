@@ -10,7 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.Serializable;
 
 
 /**
@@ -43,7 +42,7 @@ public class Login extends BaseServlet {
         String gRecaptchaResponse = req.getParameter("g-recaptcha-response");
         login_attempts++;
         req.getSession().setAttribute("loginCount", login_attempts);
-        if (login_attempts >= 3) {
+        if (login_attempts >= 4) {
             allowLogin = false;
         } else {
             allowLogin = true;
@@ -55,6 +54,7 @@ public class Login extends BaseServlet {
             if (getLoginService().verifyCredentials(user, password) && VerifyRecaptcha.verify(gRecaptchaResponse) && allowLogin) {
                 req.getSession().setAttribute("user", user);
                 req.getSession().setAttribute("loggedIn", true);
+                getLoginService().SetLoggedin(user);
                 req.changeSessionId();
                 resp.sendRedirect(req.getContextPath() + "/");
             } else {

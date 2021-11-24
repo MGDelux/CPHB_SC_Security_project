@@ -16,7 +16,7 @@ import java.util.List;
  * CREATED BY mathias @ 17-11-2021 - 14:13
  **/
 public class RegisterService implements IRegisterService {
-    private static EntityManagerFactory emf;
+    private static final EntityManagerFactory emf = EMF_Creator.createEntityManagerFactory();
 
 
     public boolean CheckIfInSystem(String email, String password) throws Exception {
@@ -36,13 +36,12 @@ public class RegisterService implements IRegisterService {
 
     @Override
     public BaseUser registerUser(String email, String password) throws Exception {
-        emf = EMF_Creator.createEntityManagerFactory();
+        EntityManager em = emf.createEntityManager();
 
         if (email == null || password == null) {
             throw new Exception(); //TODO CUSTOM Exception
 
         }
-        EntityManager em = emf.createEntityManager();
         BaseUser NewUser = new BaseUser(email, password);
         List<Permissions> permissions = new ArrayList<>();
         Customer customer = new Customer(true,2500);
