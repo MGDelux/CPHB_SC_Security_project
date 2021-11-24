@@ -25,37 +25,42 @@ public class BaseServlet extends HttpServlet {
     protected static final UserPresistence USER_SERVICE;
     protected static final ProductPerstistence PRODUCT_SERVICE;
     protected static final CommentPersistence COMMENT_SERVICE;
+    protected static final BasketPersistence BASKET_SERVICEC;
 
     static {
+        BASKET_SERVICEC = getBasketService();
         COMMENT_SERVICE = getCommentService();
         PRODUCT_SERVICE = getProductService();
         USER_SERVICE = getUserService();
         LOGIN_SERVICE = getLoginService();
-        REGISTER_SERVICE = getRegisterService(); }
-
-    private static CommentPersistence getCommentService() {
-        CommentService commentService = new CommentService();
-        return new CommentPersistence(commentService);
+        REGISTER_SERVICE = getRegisterService();
     }
 
-    public static ProductPerstistence getProductService() {
-        ProductService productService = new ProductService();
-        return new ProductPerstistence(productService);
+    protected static BasketPersistence getBasketService() {
+        return new BasketPersistence(new BasketService());
     }
 
-    public static UserPresistence getUserService() {
-        UserService userService = new UserService();
-        return new UserPresistence(userService);
+    protected static CommentPersistence getCommentService() {
+
+        return new CommentPersistence(new CommentService());
     }
 
-    public static UserLogin getLoginService() {
-        LoginService loginService = new LoginService();
-        return new UserLogin(loginService);
+    protected static ProductPerstistence getProductService() {
+
+        return new ProductPerstistence(new ProductService());
     }
 
-    public static UserRegister getRegisterService() {
-        RegisterService registerService = new RegisterService();
-        return new UserRegister(registerService);
+    protected static UserPresistence getUserService() {
+        return new UserPresistence(new UserService());
+    }
+
+    protected static UserLogin getLoginService() {
+        return new UserLogin(new LoginService());
+    }
+
+    protected static UserRegister getRegisterService() {
+
+        return new UserRegister(new RegisterService());
     }
 
 

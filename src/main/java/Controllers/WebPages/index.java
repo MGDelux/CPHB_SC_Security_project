@@ -4,6 +4,7 @@ import Controllers.BaseServlet;
 import Models.Store.Log;
 import Models.Store.Product;
 import Models.Store.ProductComment;
+import Models.Users.BaseUser;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,12 +28,23 @@ public class index extends BaseServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("post");
-        if (req.getParameter("AddCupcakeToKurv") != null) {
+        BaseUser user = (BaseUser) req.getSession().getAttribute("user");
+        try {
+
+
+        if (req.getParameter("AddCupcakeToKurv") != null && getLoginService().isLoggedIn(user,req)) {
         Product productToBasket = getProductService().getSpecificProduct(Long.parseLong(req.getParameter("productId")));
+            getBasketService().addProductToBasket(productToBasket,user);
+
             System.out.println(productToBasket);
 
         } else if (req.getParameter("PostComment") != null) {
             System.out.println("post comment");
+        }else if (!getLoginService().isLoggedIn(user,req)){
+            resp.sendRedirect(req.getContextPath() + "/login");
+        }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
