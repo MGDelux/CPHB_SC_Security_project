@@ -26,48 +26,54 @@
 <h1>basket</h1>
 <div class="ordredetalje" align="center">
     <label>Your basket</label>
-<c:choose>
-    <c:when test="${sessionScope.userBasket != null}">
-    <table id="ordre" border="1" title="Ordrelinje" class="orderBorder">
-        <thead>
-        <tr>
-            <th align="center">#ID</th>
-            <th align="center">Product Name:</th>
-            <th align="center">Description:</th>
-            <th align="center">Price:</th>
-            <th align="center">option:</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${userBasket.products}" var="cartsitems"  varStatus="loop">
-            <tr>
-                <td align="center" id="  ${loop.index}">
-                        ${loop.index}
-                </td>
-                <td align="center">
-                    ${cartsitems.productName}
-                </td>
-                <td align="center">
-                        ${cartsitems.productDescription}
-                </td>
-                <td align="center">
-                        ${cartsitems.productPrice} kr.
-                </td>
-                <td align="center">
-                    tst
-                </td>
+    <c:choose>
+        <c:when test="${sessionScope.userBasket != null}">
+            <table id="ordre" border="1" title="Ordrelinje" class="orderBorder">
+                <thead>
+                <tr>
+                    <th align="center">#ID</th>
+                    <th align="center">Product Name:</th>
+                    <th align="center">Description:</th>
+                    <th align="center">Price:</th>
+                    <th align="center">option:</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${userBasket.products}" var="cartsitems" varStatus="loop">
 
-            </tr>
-        </c:forEach>
-        </tbody>
+                    <tr>
+                        <td align="center">
+                                ${loop.index}
+                        </td>
+                        <td align="center">
+                                ${cartsitems.productName}
+                        </td>
+                        <td align="center">
+                                ${cartsitems.productDescription}
+                        </td>
+                        <td align="center">
+                                ${cartsitems.productPrice} kr.
+                        </td>
+                        <td align="center">
+                            <form method="post">
+                                <input name="basketId" value="${loop.index}" type="text">
+                                <button name="deleteItem" class="btn btn-secondary" type="submit">Delete</button>
+                            </form>
+                        </td>
 
-    </table>
-    <a href="${pageContext.request.contextPath}/"><input class="backbutton" type="button" value="Tilbage"></a>
-    </c:when>
-    <c:when test="${sessionScope.userBasket == null}">
-   <h2>Basket is empty</h2>
-    </c:when>
-</c:choose>
+                    </tr>
+
+                </c:forEach>
+                </tbody>
+
+            </table>
+            <a href="${pageContext.request.contextPath}/"><input class="backbutton" type="button" value="Tilbage"></a>
+        </c:when>
+        <c:when test="${sessionScope.userBasket == null}">
+            <h2>Basket is empty</h2>
+        </c:when>
+    </c:choose>
 </div>
+
 </body>
 </html>

@@ -26,8 +26,8 @@ public class BasketPersistence {
         return this.basketService.getProductsInBasket(user);
     }
 
-    public boolean removeProductFromBasket(Product product, BaseUser user) {
-        return this.basketService.removeProductFromBasket(product, user);
+    public boolean removeProductFromBasket(int index, BaseUser user,HttpServletRequest request) {
+        return this.basketService.removeProductFromBasket(index, user,request);
     }
 
 }

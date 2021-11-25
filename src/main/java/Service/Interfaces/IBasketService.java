@@ -14,6 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 public interface IBasketService {
     boolean addProductToBasket(Product product, BaseUser user, HttpServletRequest request) throws WebPermissionException;
     CustomerBasket getProductsInBasket(BaseUser user);
-    boolean removeProductFromBasket(Product product, BaseUser user);
+    boolean removeProductFromBasket(int index, BaseUser user,HttpServletRequest request);
 
 }

@@ -19,8 +19,8 @@ public class BasketService implements IBasketService {
     public boolean addProductToBasket(Product product, BaseUser user, HttpServletRequest request) throws WebPermissionException {
 
         try {
-            if (user.checkForPermission(Permissions.UserPermissions.ADD_TO_BASKET )) {
-                List<Product> productList = new ArrayList();
+            if (user.checkForPermission(Permissions.UserPermissions.ADD_TO_BASKET)) {
+                List<Product> productList = new ArrayList<>();
                 productList.add(product); //temp
                 if (request.getSession().getAttribute("userBasket") != null) {
                     CustomerBasket customerBasket = (CustomerBasket) request.getSession().getAttribute("userBasket");
@@ -29,7 +29,7 @@ public class BasketService implements IBasketService {
                 }
 
                 request.getSession().setAttribute("userBasket", new CustomerBasket(productList, user));
-            }else throw new WebPermissionException();
+            } else throw new WebPermissionException();
 
         } catch (Exception e) {
             return false;
@@ -44,7 +44,22 @@ public class BasketService implements IBasketService {
     }
 
     @Override
-    public boolean removeProductFromBasket(Product product, BaseUser user) {
-        return false;
+    public boolean removeProductFromBasket(int index, BaseUser user, HttpServletRequest request) {
+
+      try {
+
+        List<Product> oldProductList = new ArrayList<>();
+        List<Product> newProductList = new ArrayList<>();
+        CustomerBasket customerBasket = (CustomerBasket) request.getSession().getAttribute("userBasket");
+        oldProductList.addAll(customerBasket.getProducts());
+        oldProductList.remove(index);
+        newProductList.addAll(oldProductList);
+        request.getSession().removeAttribute("userBasket");
+        request.getSession().setAttribute("userBasket", new CustomerBasket(newProductList,user));
+    }catch (Exception e){
+          return false;
+      }
+      return true;
     }
+
 }

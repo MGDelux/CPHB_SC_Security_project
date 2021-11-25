@@ -88,7 +88,9 @@
                         Se mere
                     </button>
                 </div>
+
             </div>
+
             </form>
 
     </div></c:forEach>
