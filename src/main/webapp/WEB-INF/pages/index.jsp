@@ -3,6 +3,7 @@
 <!doctype html>
 <html lang="da">
 <head>
+    <script src="https://kit.fontawesome.com/e79609ac4a.js" crossorigin="anonymous"></script>
     <link href="<c:url value="/css/mainPage.css"/>" rel="stylesheet"/>
     <style>
         <jsp:include page="/css/mainPage.css"/>
@@ -37,8 +38,8 @@
             <span class="navbar-text">
                 <c:choose>
                     <c:when test="${sessionScope.loggedIn != null}">
-                        <span class="navbar-text"><a class="nav-link"
-                                                     href="${pageContext.request.contextPath}/profile/"> ${sessionScope.user.email} </a>  </span>
+                        <span class="navbar-text"><a class="nav-link" href="${pageContext.request.contextPath}/profile"> ${sessionScope.user.email} </a>  </span>
+                        <span class="navbar-text"><a class="nav-link" href="${pageContext.request.contextPath}/basket"> basket </a>  </span>
 
                     </c:when>
                     <c:when test="${sessionScope.loggedIn == null}">
@@ -244,6 +245,7 @@
         <h2>We have no products on the store right now.. check back at a later date</h2>
         </c:when>
         </c:choose>
+
 
 </section>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

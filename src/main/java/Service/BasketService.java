@@ -1,10 +1,13 @@
 package Service;
 
+import Config.ErrorHandling.WebPermissionException;
 import Models.Store.CustomerBasket;
 import Models.Store.Product;
 import Models.Users.BaseUser;
+import Models.Users.Permissions;
 import Service.Interfaces.IBasketService;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,19 +16,26 @@ import java.util.List;
  **/
 public class BasketService implements IBasketService {
     @Override
-    public boolean addProductToBasket(Product product, BaseUser user) {
-        List<Product> productList = new ArrayList();
-        productList.add(product); //temp
-       CustomerBasket customerBasket = new CustomerBasket(productList,user);
-        System.out.println(customerBasket);
+    public boolean addProductToBasket(Product product, BaseUser user, HttpServletRequest request) throws WebPermissionException {
+
         try {
-            if (1 == 1) {
-                //bla
-            }
-        } finally {
-            return true;
+            if (user.checkForPermission(Permissions.UserPermissions.ADD_TO_BASKET )) {
+                List<Product> productList = new ArrayList();
+                productList.add(product); //temp
+                if (request.getSession().getAttribute("userBasket") != null) {
+                    CustomerBasket customerBasket = (CustomerBasket) request.getSession().getAttribute("userBasket");
+                    productList.addAll(customerBasket.getProducts());
+                    productList.add(product);
+                }
+
+                request.getSession().setAttribute("userBasket", new CustomerBasket(productList, user));
+            }else throw new WebPermissionException();
+
+        } catch (Exception e) {
+            return false;
         }
 
+        return true;
     }
 
     @Override

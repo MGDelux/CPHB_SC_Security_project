@@ -42,4 +42,13 @@ public class CustomerBasket {
     public void setCustomer(BaseUser customer) {
         this.customer = customer;
     }
+
+    @Override
+    public String toString() {
+        return "CustomerBasket{" +
+                "products=" + products +
+                ", customer=" + customer +
+                ", totalPrice=" + totalPrice +
+                '}';
+    }
 }

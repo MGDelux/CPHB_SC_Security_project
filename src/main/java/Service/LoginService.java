@@ -44,10 +44,9 @@ public class LoginService implements ILoginService {
     @Override
     public boolean isLoggedIn(BaseUser user, HttpServletRequest request) {
         try {
-            if (user.isLoggedIn() && (Boolean.valueOf(request.getSession().getAttribute("loggedIn").toString()))) {
-                return true;
-            } else return false;
-        }catch (NullPointerException e){
+            return user.isLoggedIn() && (Boolean.parseBoolean(request.getSession().getAttribute("loggedIn").toString()));
+        }catch (Exception e){
+
             request.setAttribute("LogInError", "Please login to add item to your basket..");
             return false;
         }

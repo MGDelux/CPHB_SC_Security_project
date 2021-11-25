@@ -1,9 +1,12 @@
 package Persistence;
 
+import Config.ErrorHandling.WebPermissionException;
 import Models.Store.CustomerBasket;
 import Models.Store.Product;
 import Models.Users.BaseUser;
 import Service.Interfaces.IBasketService;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * CREATED BY mathias @ 24-11-2021 - 15:29
@@ -15,8 +18,8 @@ public class BasketPersistence {
         this.basketService = basketService;
     }
 
-    public boolean addProductToBasket(Product product, BaseUser user) {
-        return this.basketService.addProductToBasket(product, user);
+    public boolean addProductToBasket(Product product, BaseUser user, HttpServletRequest req) throws WebPermissionException {
+        return this.basketService.addProductToBasket(product, user, req);
     }
 
     public CustomerBasket getProductsInBasket(BaseUser user) {

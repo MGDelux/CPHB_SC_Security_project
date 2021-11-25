@@ -42,6 +42,7 @@ public class Product{
 
     public void setProductComments(List<ProductComment> productComments) {
         this.productComments = productComments;
+
     }
 
     public String getProductName() {

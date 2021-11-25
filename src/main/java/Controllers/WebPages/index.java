@@ -27,25 +27,28 @@ public class index extends BaseServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("post");
         BaseUser user = (BaseUser) req.getSession().getAttribute("user");
         try {
 
+            if (req.getParameter("AddCupcakeToKurv") != null) {
+                if (!getLoginService().isLoggedIn(user, req)) {
+                    req.setAttribute("LogInError", "Please login to add item to your basket..");
 
-        if (req.getParameter("AddCupcakeToKurv") != null && getLoginService().isLoggedIn(user,req)) {
-        Product productToBasket = getProductService().getSpecificProduct(Long.parseLong(req.getParameter("productId")));
-            getBasketService().addProductToBasket(productToBasket,user);
+                    resp.sendRedirect(req.getContextPath() + "/login");
+                }else {
+                    Product productToBasket = getProductService().getSpecificProduct(Long.parseLong(req.getParameter("productId")));
+                    getBasketService().addProductToBasket(productToBasket, user, req);
+                }
+            } else if (req.getParameter("PostComment") != null) {
 
-            System.out.println(productToBasket);
 
-        } else if (req.getParameter("PostComment") != null) {
-            System.out.println("post comment");
-        }else if (!getLoginService().isLoggedIn(user,req)){
-            resp.sendRedirect(req.getContextPath() + "/login");
-        }
+
+            }
+            doGet(req, resp);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e);
         }
+
     }
 
     @Override

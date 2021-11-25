@@ -1,15 +1,18 @@
 package Service.Interfaces;
 
+import Config.ErrorHandling.WebPermissionException;
 import Models.Store.CustomerBasket;
 import Models.Store.Product;
 import Models.Users.BaseUser;
 import Models.Users.Customer;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * CREATED BY mathias @ 24-11-2021 - 11:23
  **/
 public interface IBasketService {
-    boolean addProductToBasket(Product product, BaseUser user);
+    boolean addProductToBasket(Product product, BaseUser user, HttpServletRequest request) throws WebPermissionException;
     CustomerBasket getProductsInBasket(BaseUser user);
     boolean removeProductFromBasket(Product product, BaseUser user);
 

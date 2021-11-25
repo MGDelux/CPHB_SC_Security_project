@@ -101,7 +101,7 @@ public class BaseUser implements Serializable {
                 return true;
             }
         }
-        return false;
+return false;
     }
 
     public List<Permissions> getUserPermissions() {
