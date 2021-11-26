@@ -9,4 +9,5 @@ public interface ILoginService {
      boolean logout(BaseUser user, HttpServletRequest request);
      void SetLoggedin(BaseUser user) throws Exception;
      boolean isLoggedIn(BaseUser user,HttpServletRequest request );
+     boolean reAuthUser(BaseUser user, HttpServletRequest request);
 }

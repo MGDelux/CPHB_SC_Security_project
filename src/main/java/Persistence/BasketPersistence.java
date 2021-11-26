@@ -30,4 +30,7 @@ public class BasketPersistence {
         return this.basketService.removeProductFromBasket(index, user,request);
     }
 
+    public double calculateTotalPrice(HttpServletRequest request) {
+        return this.basketService.calculateTotalPrice   (request);
+    }
 }

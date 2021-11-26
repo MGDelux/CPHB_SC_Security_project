@@ -120,6 +120,7 @@ return false;
         return customerInfomation;
     }
 
+
     public void setCustomerInfomation(Customer customerInfomation) {
         this.customerInfomation = customerInfomation;
     }

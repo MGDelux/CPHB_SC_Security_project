@@ -13,6 +13,8 @@ public class Customer implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     boolean isCustomer;
+    String firstName;
+    String lastName;
 
     @OneToOne(cascade = CascadeType.PERSIST)
     Address address;
@@ -21,9 +23,34 @@ public class Customer implements Serializable {
     public Customer(boolean isCustomer, double storeCredit) {
         this.isCustomer = isCustomer;
         this.storeCredit = storeCredit;
+
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public Customer() {
 
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }

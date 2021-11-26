@@ -7,5 +7,6 @@ import Models.Users.BaseUser;
  **/
 public interface IUserService {
      BaseUser getUser(String email);
-     BaseUser modifyUser(BaseUser user);
+     BaseUser InternalModifyUser(BaseUser user);
+     BaseUser ModifyUser(BaseUser user);
 }

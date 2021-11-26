@@ -52,5 +52,10 @@ public class LoginService implements ILoginService {
         }
     }
 
+    @Override
+    public boolean reAuthUser(BaseUser user, HttpServletRequest request) {
+        return false;
+    }
+
 
 }

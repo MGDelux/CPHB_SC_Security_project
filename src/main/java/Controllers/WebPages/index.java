@@ -36,6 +36,8 @@ public class index extends BaseServlet {
 
                     resp.sendRedirect(req.getContextPath() + "/login");
                 }else {
+
+                    System.out.println("post");
                     Product productToBasket = getProductService().getSpecificProduct(Long.parseLong(req.getParameter("productId")));
                     getBasketService().addProductToBasket(productToBasket, user, req);
                 }

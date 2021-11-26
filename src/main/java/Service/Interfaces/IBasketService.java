@@ -16,4 +16,5 @@ public interface IBasketService {
     CustomerBasket getProductsInBasket(BaseUser user);
     boolean removeProductFromBasket(int index, BaseUser user,HttpServletRequest request);
 
+    double calculateTotalPrice(HttpServletRequest request);
 }

@@ -9,7 +9,7 @@ class RegisterServiceTest {
 @Test
     void registerNewUser() throws Exception {
         RegisterService registerService = new RegisterService();
-        registerService.registerUser("emailtest", "password");
+        registerService.registerUser("mathiastouboel@gmail.com", "password");
         System.out.print("USER 1 CREATED");
         System.out.print("\nREDO with same new infomation...");
         registerService.registerUser("new email poggies", "password");

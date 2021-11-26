@@ -20,20 +20,27 @@ This servlet is a general servlet. You should create a servles for each type of 
  */
 @WebServlet(name = "BaseServlet")
 public class BaseServlet extends HttpServlet {
+    //now this is real programming lmao
     protected static final UserRegister REGISTER_SERVICE;
     protected static final UserLogin LOGIN_SERVICE;
     protected static final UserPresistence USER_SERVICE;
     protected static final ProductPerstistence PRODUCT_SERVICE;
     protected static final CommentPersistence COMMENT_SERVICE;
-    protected static final BasketPersistence BASKET_SERVICEC;
+    protected static final BasketPersistence BASKET_SERVICE;
+    protected static final OrderPersistence ORDER_SERVICE;
 
     static {
-        BASKET_SERVICEC = getBasketService();
+        ORDER_SERVICE = getOrderService();
+        BASKET_SERVICE = getBasketService();
         COMMENT_SERVICE = getCommentService();
         PRODUCT_SERVICE = getProductService();
         USER_SERVICE = getUserService();
         LOGIN_SERVICE = getLoginService();
         REGISTER_SERVICE = getRegisterService();
+    }
+
+    protected static OrderPersistence getOrderService() {
+        return new OrderPersistence(new OrderService());
     }
 
     protected static BasketPersistence getBasketService() {

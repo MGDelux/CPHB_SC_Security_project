@@ -42,7 +42,7 @@ public class Login extends BaseServlet {
         String gRecaptchaResponse = req.getParameter("g-recaptcha-response");
         login_attempts++;
         req.getSession().setAttribute("loginCount", login_attempts);
-        if (login_attempts >= 4) {
+        if (login_attempts > 4) {
             allowLogin = false;
         } else {
             allowLogin = true;
