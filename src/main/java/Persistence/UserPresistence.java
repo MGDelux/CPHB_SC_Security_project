@@ -18,8 +18,11 @@ public class UserPresistence {
         return this.IUserService.getUser(email);
     }
 
-    public BaseUser modifyUser(BaseUser user) {
-        return this.IUserService.modifyUser(user);
+    public BaseUser InternalModifyUser(BaseUser user) {
+        return this.IUserService.InternalModifyUser(user);
+    }
+    public BaseUser ModifyUser(BaseUser user) {
+        return this.IUserService.ModifyUser(user);
     }
 
 }

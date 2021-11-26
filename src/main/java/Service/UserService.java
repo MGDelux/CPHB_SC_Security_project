@@ -36,7 +36,26 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public BaseUser modifyUser(BaseUser user) {
+    public BaseUser InternalModifyUser(BaseUser user) {
+        emf = EMF_Creator.createEntityManagerFactory();
+        try {
+            System.out.println("Internal");
+
+            EntityManager em = emf.createEntityManager();
+            em.merge(user);
+            em.merge(user.getCustomerInfomation());
+            em.merge(user.getCustomerInfomation().getAddress());
+            System.out.println("Internal user is go");
+
+            return user;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return user;
+    }
+
+    @Override
+    public BaseUser ModifyUser(BaseUser user) {
         return null;
     }
 }
