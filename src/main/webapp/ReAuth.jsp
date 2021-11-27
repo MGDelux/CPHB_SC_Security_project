@@ -4,7 +4,7 @@
 <html lang="en" dir="ltr">
 <head>
     <script src="https://www.google.com/recaptcha/api.js"></script>
-    <title>login</title>
+    <title>Re authenticate</title>
     <style> <jsp:include page="css/loginstyle.css"/></style>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,8 +22,8 @@
                         <div class="mb-md-5 mt-md-4 pb-5">
                             <form  method="post">
 
-                            <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-                            <p class="text-white-50 mb-5">Please enter your email and password!</p>
+                            <h2 class="fw-bold mb-2 text-uppercase">ReAuth</h2>
+                            <p class="text-white-50 mb-5">Please enter your email and password to re authenticate </p>
 
                             <div class="form-outline form-white mb-4">
                                 <input name="email" type="email" id="typeEmailX" class="form-control form-control-lg" placeholder="Email" required/>
@@ -38,13 +38,10 @@
 
                                     <div class="g-recaptcha"
                                          data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
-
-                                    <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                                    <button class="btn btn-outline-light btn-lg px-5" type="submit">Authenticate</button>
                             </div>
 
                                 </form>
-
-                            <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
                             <div class="text-danger fw-bold">
                                 <c:if test="${requestScope.LogInError != null}">
                                     ${requestScope.LogInError}

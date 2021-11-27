@@ -4,6 +4,8 @@ import Models.Users.BaseUser;
 import Service.Interfaces.ILoginService;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * CREATED BY mathias @ 18-11-2021 - 20:08
@@ -23,8 +25,8 @@ public class UserLogin {
         return this.logout(user, request);
     }
 
-    public void SetLoggedin(BaseUser user) throws Exception {
-        this.userLogin.SetLoggedin(user);
+    public void SetLoggedin(BaseUser user, boolean status) throws Exception {
+        this.userLogin.SetLoggedin(user,status);
     }
 
     public boolean isLoggedIn(BaseUser user, HttpServletRequest request) {
@@ -32,4 +34,10 @@ public class UserLogin {
         return this.userLogin.isLoggedIn(user, request);
 
     }
+
+    public boolean DoReAuthUser(BaseUser user, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        return this.userLogin.reAuthUser(user, request,response);
+
+    }
+
 }

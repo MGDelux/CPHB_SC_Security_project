@@ -21,7 +21,6 @@ public class Product{
     private byte[] ProductPicture;
     @OneToMany(targetEntity = ProductComment.class,cascade = CascadeType.PERSIST,fetch =  FetchType.EAGER)
     private List<ProductComment> productComments;
-
     public Product(){
     }
 

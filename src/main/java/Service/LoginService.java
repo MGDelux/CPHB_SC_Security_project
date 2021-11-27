@@ -9,6 +9,8 @@ import org.mindrot.jbcrypt.BCrypt;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * CREATED BY mathias @ 16-11-2021 - 10:12
@@ -27,15 +29,14 @@ public class LoginService implements ILoginService {
     }
 
     @Override
-    public void SetLoggedin(BaseUser user) throws Exception {
+    public void SetLoggedin(BaseUser user, boolean status) throws Exception {
         EntityManager em = emf.createEntityManager();
         try {
-            System.out.println("set login");
-            user.setLoggedIn(true);
+            user.setLoggedIn(status);
             em.getTransaction().begin();
             em.merge(user);
             em.getTransaction().commit();
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception();
         }
 
@@ -44,8 +45,10 @@ public class LoginService implements ILoginService {
     @Override
     public boolean isLoggedIn(BaseUser user, HttpServletRequest request) {
         try {
+            request.changeSessionId();
             return user.isLoggedIn() && (Boolean.parseBoolean(request.getSession().getAttribute("loggedIn").toString()));
-        }catch (Exception e){
+
+        } catch (Exception e) {
 
             request.setAttribute("LogInError", "Please login to add item to your basket..");
             return false;
@@ -53,7 +56,22 @@ public class LoginService implements ILoginService {
     }
 
     @Override
-    public boolean reAuthUser(BaseUser user, HttpServletRequest request) {
+    public boolean reAuthUser(BaseUser user, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        long time_passed = (long) request.getSession().getAttribute("loginTime");
+        long current_time = System.currentTimeMillis();
+        long time_elapsed = current_time - time_passed;
+        System.out.println(time_elapsed);
+        //30min
+        if (time_elapsed >= 1800000) {
+            response.sendRedirect(request.getContextPath() + "/authenticate");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    @Override
+    public boolean ForceReAuth(BaseUser user, HttpServletRequest request, HttpServletResponse response) throws IOException {
         return false;
     }
 

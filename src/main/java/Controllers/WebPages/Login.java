@@ -1,10 +1,7 @@
 package Controllers.WebPages;
-
 import Config.VerifyRecaptcha;
 import Controllers.BaseServlet;
 import Models.Users.BaseUser;
-
-import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,8 +14,6 @@ import java.io.IOException;
  **/
 @WebServlet({"/login", "/login/*"})
 public class Login extends BaseServlet {
-    private static EntityManagerFactory emf;
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -54,7 +49,8 @@ public class Login extends BaseServlet {
             if (getLoginService().verifyCredentials(user, password) && VerifyRecaptcha.verify(gRecaptchaResponse) && allowLogin) {
                 req.getSession().setAttribute("user", user);
                 req.getSession().setAttribute("loggedIn", true);
-                getLoginService().SetLoggedin(user);
+                req.getSession().setAttribute("loginTime",System.currentTimeMillis());
+                getLoginService().SetLoggedin(user,true);
                 req.changeSessionId();
                 resp.sendRedirect(req.getContextPath() + "/");
             } else {

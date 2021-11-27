@@ -1,5 +1,6 @@
 package Controllers.WebPages;
 
+import Config.VerifyRecaptcha;
 import Controllers.BaseServlet;
 import Models.Store.Log;
 import Models.Store.Product;
@@ -35,18 +36,29 @@ public class index extends BaseServlet {
                     req.setAttribute("LogInError", "Please login to add item to your basket..");
 
                     resp.sendRedirect(req.getContextPath() + "/login");
-                }else {
+                } else {
 
                     System.out.println("post");
                     Product productToBasket = getProductService().getSpecificProduct(Long.parseLong(req.getParameter("productId")));
                     getBasketService().addProductToBasket(productToBasket, user, req);
                 }
-            } else if (req.getParameter("PostComment") != null) {
-
-
+            }
+            if (req.getParameter("PostComment") != null && getLoginService().isLoggedIn(user, req)) {
+                String comment = (req.getParameter("UserComment"));
+                String gRecaptchaResponse = req.getParameter("g-recaptcha-response");
+                long rating = (Long.parseLong(req.getParameter("Commentrating")));
+                Product specificProduct = getProductService().getSpecificProduct(Long.parseLong(req.getParameter("productId")));
+                if (getLoginService().DoReAuthUser(user,req,resp) && VerifyRecaptcha.verify(gRecaptchaResponse)) {
+                    System.out.println("post comment");
+                    req.removeAttribute("g-recaptcha-response");
+                    getCommentService().postComment(Integer.parseInt(String.valueOf(rating)), specificProduct, comment, user);
+                }
+            } else if (!getLoginService().isLoggedIn(user, req)) {
+                resp.sendRedirect(req.getContextPath() + "/login");
 
             }
-            doGet(req, resp);
+            resp.sendRedirect(req.getContextPath() + "/");
+
         } catch (Exception e) {
             System.out.println(e);
         }

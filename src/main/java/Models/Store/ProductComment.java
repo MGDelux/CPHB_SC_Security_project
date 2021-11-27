@@ -6,9 +6,11 @@ import org.eclipse.persistence.jpa.jpql.parser.DateTime;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  * CREATED BY mathias @ 18-11-2021 - 20:10
@@ -31,20 +33,30 @@ public class ProductComment implements Serializable {
     @NotNull
     @Column(name="Comment")
     private String comment;
-    @OneToOne(targetEntity = ProductRating.class, cascade = CascadeType.PERSIST,fetch =  FetchType.EAGER)
-    private ProductRating productRating; // 1 - 5, 5 is max 1 is minimum
-
+    @Size(min = 1,max = 5)
+    private int rating;
+    @ManyToOne(targetEntity = Product.class,cascade = CascadeType.PERSIST,fetch =  FetchType.EAGER)
+    private Product product;
     public ProductComment() {
 
     }
-    private static SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+    private static SimpleDateFormat formatter= new SimpleDateFormat("dd-MM-yyyy 'at' HH:mm: z");
 
 
-    public ProductComment(@NotNull BaseUser commenter, @NotNull String comment, ProductRating productRating) {
+    public ProductComment(@NotNull BaseUser commenter, @NotNull String comment, int productRating, Product product) {
         this.timeAndDateStamp = formatter.format(System.currentTimeMillis());
         this.commenter = commenter;
         this.comment = comment;
-        this.productRating = productRating;
+        this.rating = productRating;
+        this.product = product;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public String getTimeAndDateStamp() {
@@ -79,11 +91,7 @@ public class ProductComment implements Serializable {
         this.comment = comment;
     }
 
-    public ProductRating getProductRating() {
-        return productRating;
-    }
-
-    public void setProductRating(ProductRating productRating) {
-        this.productRating = productRating;
+    public int getRating() {
+        return rating;
     }
 }
