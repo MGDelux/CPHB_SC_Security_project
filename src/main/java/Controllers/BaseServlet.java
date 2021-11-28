@@ -1,6 +1,5 @@
 package Controllers;
 
-import Controllers.widget.Navbar;
 import Models.Store.Log;
 import Models.Users.BaseUser;
 import Persistence.*;
@@ -88,8 +87,6 @@ public class BaseServlet extends HttpServlet {
 
     protected void render(String title, String content, HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.setAttribute("indexNavbar", new Navbar(req));
-        req.setAttribute("navbar", new Navbar(req));
         req.setAttribute("title", title);
         req.setAttribute("content", content);
         req.getRequestDispatcher(content).forward(req, resp);

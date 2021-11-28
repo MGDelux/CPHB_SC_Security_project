@@ -1,5 +1,6 @@
 package Controllers.WebPages;
 
+import Config.Sanitize;
 import Controllers.BaseServlet;
 import Models.Store.CustomerBasket;
 import Models.Store.Order;
@@ -42,10 +43,10 @@ public class Basket extends BaseServlet {
                 doGet(req, resp);
             }
             try {
-                String shippingAdress = req.getParameter("Gaddress");
-                String houseNumber = req.getParameter("Gaddress2");
+                String shippingAdress = Sanitize.santizeHTML( req.getParameter("Gaddress"));
+                String houseNumber = Sanitize.santizeHTML(req.getParameter("Gaddress2"));
                 int zipCode = Integer.parseInt(req.getParameter("Gzip"));
-                String country = req.getParameter("Gcountry");
+                String country = Sanitize.santizeHTML(req.getParameter("Gcountry"));
                 if (req.getParameter("checkOut") != null) {
                     BaseUser user = (BaseUser) req.getSession().getAttribute("user");
                     if (req.getParameter("saveShippingInfo") != null) {

@@ -40,7 +40,7 @@ public class ProductComment implements Serializable {
     public ProductComment() {
 
     }
-    private static SimpleDateFormat formatter= new SimpleDateFormat("dd-MM-yyyy 'at' HH:mm: z");
+    private static SimpleDateFormat formatter= new SimpleDateFormat("dd-MM-yyyy 'at' HH:mm z");
 
 
     public ProductComment(@NotNull BaseUser commenter, @NotNull String comment, int productRating, Product product) {

@@ -1,7 +1,10 @@
 package Controllers.WebPages;
+
+import Config.Sanitize;
 import Config.VerifyRecaptcha;
 import Controllers.BaseServlet;
 import Models.Users.BaseUser;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,8 +35,8 @@ public class Login extends BaseServlet {
         } else {
             login_attempts = (int) req.getSession().getAttribute("loginCount");
         }
-        String email = req.getParameter("email");
-        String password = req.getParameter("password");
+        String email =  Sanitize.santizeHTML(req.getParameter("email"));
+        String password = Sanitize.santizeHTML(req.getParameter("password"));
         String gRecaptchaResponse = req.getParameter("g-recaptcha-response");
         login_attempts++;
         req.getSession().setAttribute("loginCount", login_attempts);
@@ -43,14 +46,13 @@ public class Login extends BaseServlet {
             allowLogin = true;
         }
         try {
-
-
             BaseUser user = getUserService().getUser(email);
             if (getLoginService().verifyCredentials(user, password) && VerifyRecaptcha.verify(gRecaptchaResponse) && allowLogin) {
                 req.getSession().setAttribute("user", user);
                 req.getSession().setAttribute("loggedIn", true);
-                req.getSession().setAttribute("loginTime",System.currentTimeMillis());
-                getLoginService().SetLoggedin(user,true);
+                req.getSession().setAttribute("loginTime", System.currentTimeMillis());
+                getLoginService().SetLoggedin(user, true);
+                req.getSession().setAttribute("doReAuth", false);
                 req.changeSessionId();
                 resp.sendRedirect(req.getContextPath() + "/");
             } else {

@@ -26,9 +26,13 @@ public class ReAuthenticate extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         setUp(req, resp);
+        if ((boolean) req.getSession().getAttribute("doReAuth")){
+
+
         render("reauth page", "/ReAuth.jsp", req, resp);
 
         try {
+            req.getSession().setAttribute("doReAuth",false);
             req.getSession().setAttribute("loggedIn", false);
             BaseUser user = (BaseUser) req.getSession().getAttribute("user");
             getLoginService().SetLoggedin(user, false);
@@ -37,7 +41,9 @@ public class ReAuthenticate extends BaseServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        }else {
+            resp.sendRedirect(req.getContextPath() + "/");
+        }
 
     }
 
@@ -55,6 +61,8 @@ public class ReAuthenticate extends BaseServlet {
                 req.changeSessionId();
                 req.getSession().setAttribute("loginTime",System.currentTimeMillis());
                 req.setAttribute("ReAuthenticated", true);
+                resp.sendRedirect(req.getContextPath() + "/");
+
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,5 +1,6 @@
 package Controllers.WebPages;
 
+import Config.Sanitize;
 import Config.VerifyRecaptcha;
 import Controllers.BaseServlet;
 import Models.Store.Log;
@@ -44,7 +45,7 @@ public class index extends BaseServlet {
                 }
             }
             if (req.getParameter("PostComment") != null && getLoginService().isLoggedIn(user, req)) {
-                String comment = (req.getParameter("UserComment"));
+                String comment = Sanitize.santizeHTML(req.getParameter("UserComment"));
                 String gRecaptchaResponse = req.getParameter("g-recaptcha-response");
                 long rating = (Long.parseLong(req.getParameter("Commentrating")));
                 Product specificProduct = getProductService().getSpecificProduct(Long.parseLong(req.getParameter("productId")));

@@ -8,11 +8,13 @@ import org.owasp.html.PolicyFactory;
  * CREATED BY Emil @ 18-11-2021 - 15:34
  **/
 public class Sanitize extends BaseServlet {
-    PolicyFactory policy = new HtmlPolicyBuilder()
-            .allowElements("a")
+  public static PolicyFactory policy = new HtmlPolicyBuilder()
             .allowUrlProtocols("https")
             .allowAttributes("href").onElements("a")
             .requireRelNofollowOnLinks()
             .toFactory();
-  //  String safeHTML = policy.sanitize(untrustedHTML);
+
+ public static String santizeHTML(String strng){
+     return policy.sanitize(strng);
+ }
 }

@@ -2,6 +2,7 @@ package Controllers.WebPages;
 
 import Config.ErrorHandling.UserInternalError;
 import Config.PasswordStrengthValidation;
+import Config.Sanitize;
 import Config.VerifyRecaptcha;
 import Controllers.BaseServlet;
 
@@ -31,9 +32,9 @@ public class Register extends BaseServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        String retypedPassword = request.getParameter("RetypedPassword");
+        String email = Sanitize.santizeHTML(request.getParameter("email"));
+        String password = Sanitize.santizeHTML(request.getParameter("password"));
+        String retypedPassword = Sanitize.santizeHTML(request.getParameter("RetypedPassword"));
         String gRecaptchaResponse = request.getParameter("g-recaptcha-response");
         try { //NESTED IF STATEMENTS FTW /S
             if (password.equals(retypedPassword) && PasswordStrengthValidation.ValidatePWStrength(password) ){

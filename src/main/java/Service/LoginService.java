@@ -57,12 +57,13 @@ public class LoginService implements ILoginService {
 
     @Override
     public boolean reAuthUser(BaseUser user, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        long time_passed = (long) request.getSession().getAttribute("loginTime");
-        long current_time = System.currentTimeMillis();
-        long time_elapsed = current_time - time_passed;
-        System.out.println(time_elapsed);
-        //30min
-        if (time_elapsed >= 1800000) {
+        long timePassed = (long) request.getSession().getAttribute("loginTime");
+        long currentTime = System.currentTimeMillis();
+        long timeElapsed = currentTime - timePassed;
+        System.out.println(timeElapsed);
+        //10min 600000ms
+        if (timeElapsed >= 600000) {
+            request.getSession().setAttribute("doReAuth", true);
             response.sendRedirect(request.getContextPath() + "/authenticate");
             return false;
         } else {
@@ -72,7 +73,9 @@ public class LoginService implements ILoginService {
 
     @Override
     public boolean ForceReAuth(BaseUser user, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        return false;
+        request.getSession().setAttribute("doReAuth", true);
+        response.sendRedirect(request.getContextPath() + "/authenticate");
+        return true;
     }
 
 
