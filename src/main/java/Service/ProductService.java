@@ -51,9 +51,9 @@ public class ProductService implements IProductService {
         try {
             EntityManager em = emf.createEntityManager();
 
-            productList = em.createNativeQuery("SELECT * FROM PRODUCTS",Product.class).getResultList();
-          return productList;
-        }catch (Exception e){
+            productList = em.createNativeQuery("SELECT * FROM PRODUCTS", Product.class).getResultList();
+            return productList;
+        } catch (Exception e) {
             System.out.println(e);
         }
 
@@ -64,8 +64,8 @@ public class ProductService implements IProductService {
     public Product getSpecificProduct(long product) {
         EntityManager em = emf.createEntityManager();
         try {
-         return em.find(Product.class,product);
-        }catch (EntityNotFoundException e){
+            return em.find(Product.class, product);
+        } catch (EntityNotFoundException e) {
             throw new EntityNotFoundException();
         }
 

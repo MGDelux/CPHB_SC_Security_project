@@ -5,7 +5,7 @@ import javax.persistence.*;
 /**
  * CREATED BY mathias @ 13-11-2021 - 21:41
  **/
-@Entity(name="Permissions")
+@Entity(name = "Permissions")
 public class Permissions {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,21 +14,21 @@ public class Permissions {
     @Enumerated(EnumType.ORDINAL)
     private UserPermissions userPerms;
 
-    public UserPermissions getUserPerms() {
-        return userPerms;
-    }
-
     public Permissions() {
 
     }
 
-    public int getPermissionID() {
-        return permissionID;
-    }
-
-    public Permissions( String permissionDescription, UserPermissions permissions) {
+    public Permissions(String permissionDescription, UserPermissions permissions) {
         this.permissionDescription = permissionDescription;
         this.userPerms = permissions;
+    }
+
+    public UserPermissions getUserPerms() {
+        return userPerms;
+    }
+
+    public int getPermissionID() {
+        return permissionID;
     }
 
     public void setPermissionID(int permissionID) {
@@ -37,6 +37,15 @@ public class Permissions {
 
     public UserPermissions getUsersPermissions() {
         return userPerms;
+    }
+
+    @Override
+    public String toString() {
+        return "Permissions{" +
+                "permissionID=" + permissionID +
+                ", permissionDescription='" + permissionDescription + '\'' +
+                ", permissions=" + userPerms +
+                '}';
     }
 
     public enum UserPermissions {
@@ -49,17 +58,8 @@ public class Permissions {
         MODIFY_USER,
         ADD_TO_BASKET,
         VIEW_ADMIN_PAGE,
-        VIEW_PERSONAL_USER_PAGE;
+        VIEW_PERSONAL_USER_PAGE
 
-    };
-
-    @Override
-    public String toString() {
-        return "Permissions{" +
-                "permissionID=" + permissionID +
-                ", permissionDescription='" + permissionDescription + '\'' +
-                ", permissions=" + userPerms +
-                '}';
     }
 }
 

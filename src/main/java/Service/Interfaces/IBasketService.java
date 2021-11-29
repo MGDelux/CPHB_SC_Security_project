@@ -4,7 +4,6 @@ import Config.ErrorHandling.WebPermissionException;
 import Models.Store.CustomerBasket;
 import Models.Store.Product;
 import Models.Users.BaseUser;
-import Models.Users.Customer;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -13,8 +12,10 @@ import javax.servlet.http.HttpServletRequest;
  **/
 public interface IBasketService {
     boolean addProductToBasket(Product product, BaseUser user, HttpServletRequest request) throws WebPermissionException;
+
     CustomerBasket getProductsInBasket(BaseUser user);
-    boolean removeProductFromBasket(int index, BaseUser user,HttpServletRequest request);
+
+    boolean removeProductFromBasket(int index, BaseUser user, HttpServletRequest request);
 
     double calculateTotalPrice(HttpServletRequest request);
 }

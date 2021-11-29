@@ -26,22 +26,22 @@ public class ReAuthenticate extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         setUp(req, resp);
-        if ((boolean) req.getSession().getAttribute("doReAuth")){
+        if ((boolean) req.getSession().getAttribute("doReAuth")) {
 
 
-        render("reauth page", "/ReAuth.jsp", req, resp);
+            render("reauth page", "/ReAuth.jsp", req, resp);
 
-        try {
-            req.getSession().setAttribute("doReAuth",false);
-            req.getSession().setAttribute("loggedIn", false);
-            BaseUser user = (BaseUser) req.getSession().getAttribute("user");
-            getLoginService().SetLoggedin(user, false);
-            req.getSession().setAttribute("user", null);
-            req.setAttribute("ReAuthenticated", false);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        }else {
+            try {
+                req.getSession().setAttribute("doReAuth", false);
+                req.getSession().setAttribute("loggedIn", false);
+                BaseUser user = (BaseUser) req.getSession().getAttribute("user");
+                getLoginService().SetLoggedin(user, false);
+                req.getSession().setAttribute("user", null);
+                req.setAttribute("ReAuthenticated", false);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
             resp.sendRedirect(req.getContextPath() + "/");
         }
 
@@ -59,7 +59,7 @@ public class ReAuthenticate extends BaseServlet {
                 req.getSession().setAttribute("loggedIn", true);
                 getLoginService().SetLoggedin(user, true);
                 req.changeSessionId();
-                req.getSession().setAttribute("loginTime",System.currentTimeMillis());
+                req.getSession().setAttribute("loginTime", System.currentTimeMillis());
                 req.setAttribute("ReAuthenticated", true);
                 resp.sendRedirect(req.getContextPath() + "/");
 

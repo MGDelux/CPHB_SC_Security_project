@@ -1,6 +1,5 @@
 package Service;
 
-import Config.ErrorHandling.UserNotFoundException;
 import Dependencies.EMF_Creator;
 import Models.Users.BaseUser;
 import Service.Interfaces.ILoginService;

@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * CREATED BY Emil @ 17-11-2021 - 15:36
  **/
-@WebServlet({"/profilepage", "/profilepage/*"})
+@WebServlet({"/profile", "/profile/*"})
 public class Profilepage extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)

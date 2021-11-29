@@ -10,8 +10,12 @@ import java.util.List;
  **/
 public interface IProductService {
     Product createNewProduct(BaseUser user, Product product) throws Exception;
+
     Product deleteProduct(BaseUser user, Product product);
+
     Product modifyProduct(BaseUser user, Product product);
+
     List<Product> getAllProducts();
+
     Product getSpecificProduct(long product);
 }

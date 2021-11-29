@@ -34,16 +34,16 @@ public class Basket extends BaseServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            System.out.println("post");
             if (req.getParameter("deleteItem") != null) {
-                System.out.println(req.getParameter("basketId"));
-                System.out.println("delte item");
                 BaseUser user = (BaseUser) req.getSession().getAttribute("user");
                 getBasketService().removeProductFromBasket(Integer.parseInt(req.getParameter("basketId")), user, req);
                 doGet(req, resp);
             }
             try {
-                String shippingAdress = Sanitize.santizeHTML( req.getParameter("Gaddress"));
+                String fistname = Sanitize.santizeHTML(req.getParameter("GFirstName"));
+                String lastname = Sanitize.santizeHTML(req.getParameter("GLastName"));
+                String username = Sanitize.santizeHTML(req.getParameter("GUsername"));
+                String shippingAdress = Sanitize.santizeHTML(req.getParameter("Gaddress"));
                 String houseNumber = Sanitize.santizeHTML(req.getParameter("Gaddress2"));
                 int zipCode = Integer.parseInt(req.getParameter("Gzip"));
                 String country = Sanitize.santizeHTML(req.getParameter("Gcountry"));
@@ -51,28 +51,31 @@ public class Basket extends BaseServlet {
                     BaseUser user = (BaseUser) req.getSession().getAttribute("user");
                     if (req.getParameter("saveShippingInfo") != null) {
                         try {
-                            Address address = new Address(shippingAdress,houseNumber,zipCode,"todo",country);
+                            user.getCustomerInfomation().setFirstName(fistname);
+                            user.getCustomerInfomation().setLastName(lastname);
+                            user.setUsername(username);
+                            Address address = new Address(shippingAdress, houseNumber, zipCode, "todo", country);
                             user.getCustomerInfomation().setAddress(address);
                             CustomerBasket customerBasket = (CustomerBasket) req.getSession().getAttribute("userBasket");
                             Order order = new Order(customerBasket);
 
                             getUserService().InternalModifyUser(user);
-                            getOrderService().createOrder(user,order);
-                        }catch (Exception e){
+                            getOrderService().createOrder(user, order);
+                        } catch (Exception e) {
                             System.out.println(e);
                         }
-                    }else {
-                        Address address = new Address(shippingAdress,houseNumber,zipCode,"todo",country);
+                    } else {
+                        Address address = new Address(shippingAdress, houseNumber, zipCode, "todo", country);
                         user.getCustomerInfomation().setAddress(address);
                         CustomerBasket customerBasket = (CustomerBasket) req.getSession().getAttribute("userBasket");
                         Order order = new Order(customerBasket);
-                        getOrderService().createOrder(user,order);
+                        getOrderService().createOrder(user, order);
                         System.out.println("order created with updated without information");
 
                     }
                 }
                 resp.sendRedirect(req.getContextPath() + "/thankyou");
-            }catch (Exception e){
+            } catch (Exception e) {
                 System.out.println(e);
             }
 

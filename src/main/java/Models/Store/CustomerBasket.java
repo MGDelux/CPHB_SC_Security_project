@@ -11,17 +11,16 @@ import java.util.List;
  **/
 @Entity(name = "UserBasket")
 public class CustomerBasket {
+    @OneToMany()
+    List<Product> products;
+    @OneToOne(targetEntity = BaseUser.class, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    BaseUser customer;
+    double totalPrice;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
-    @Column(name="basket_id")
+    @Column(name = "basket_id")
     private Long id;
-    @OneToMany()
-    List<Product> products;
-    @OneToOne(targetEntity = BaseUser.class, cascade = CascadeType.PERSIST,fetch =  FetchType.EAGER)
-    BaseUser customer;
-
-    double totalPrice;
 
     public CustomerBasket(List<Product> products, BaseUser customer) {
         this.products = products;
@@ -44,12 +43,12 @@ public class CustomerBasket {
         return products;
     }
 
-    public BaseUser getCustomer() {
-        return customer;
-    }
-
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public BaseUser getCustomer() {
+        return customer;
     }
 
     public void setCustomer(BaseUser customer) {

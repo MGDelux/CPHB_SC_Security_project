@@ -104,110 +104,106 @@
 
         <div class="col-md-8 order-md-1">
             <form method="post">
-            <h4 class="mb-3">Billing address</h4>
-            <form class="needs-validation" novalidate="">
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="firstName">First name</label>
-                        <input type="text" class="form-control"
-                               value="${sessionScope.user.customerInfomation.firstName}" id="firstName" placeholder=""
-                               value="" required="">
-                        <div class="invalid-feedback"> Valid first name is required.</div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="lastName">Last name</label>
-                        <input type="text" class="form-control" value="${sessionScope.user.customerInfomation.lastName}"
-                               id="lastName" placeholder="" value="" required="">
-                        <div class="invalid-feedback"> Valid last name is required.</div>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="username">Username</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">@</span>
+                <h4 class="mb-3">Billing address</h4>
+                <form class="needs-validation" novalidate="">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="firstName">First name</label>
+                            <input name="GFirstName" type="text" class="form-control"
+                                   value="${sessionScope.user.customerInfomation.firstName}" id="firstName"
+                                   placeholder=""
+                                   value="" required="">
                         </div>
-                        <input type="text" class="form-control" id="username" value="${sessionScope.user.username}"
-                               placeholder="Username" required="">
-                        <div class="invalid-feedback" style="width: 100%;"> Your username is required.</div>
+                        <div class="col-md-6 mb-3">
+                            <label for="lastName">Last name</label>
+                            <input name="GLastName" type="text" class="form-control"
+                                   value="${sessionScope.user.customerInfomation.lastName}"
+                                   id="lastName" placeholder="" value="" required="">
+                        </div>
                     </div>
-                </div>
-                <div class="mb-3">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" value="${sessionScope.user.email}"
-                           placeholder="${sessionScope.user.email}">
-                    <div class="invalid-feedback"> Please enter a valid email address for shipping updates.</div>
-                </div>
-                <div class="mb-3">
-                    <label for="Gaddress">Address</label>
-                    <input name="Gaddress" type="text" class="form-control" id="address" placeholder="Street "
-                           value="${sessionScope.user.customerInfomation.address}" required="true">
-                    <div class="invalid-feedback"> Please enter your shipping address.</div>
-                </div>
-                <div class="mb-3">
-                    <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-                    <input name="Gaddress2" type="text" class="form-control" id="address2"
-                           value="${sessionScope.user.customerInfomation.address.houseNumber}"
-                           placeholder="Apartment or suite">
-                </div>
-                <div class="row">
-                    <div class="col-md-5 mb-3">
-                        <label for="Gcountry">Country</label>
-                        <select name="Gcountry" class="custom-select d-block w-100" id="Gcountry" required="">
-                            <option value="">Choose...</option>
-                            <option>Denmark</option>
-                        </select>
-                        <div class="invalid-feedback"> Please select a valid country.</div>
+                    <div class="mb-3">
+                        <label for="username">Username</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">@</span>
+                            </div>
+                            <input type="text" name="GUsername" class="form-control" id="username" value="${sessionScope.user.username}"
+                                   placeholder="Username" required="">
+                        </div>
                     </div>
+                    <div class="mb-3">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" value="${sessionScope.user.email}"
+                               placeholder="${sessionScope.user.email}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="address">Address</label>
+                        <input name="Gaddress" type="text" class="form-control" id="address" placeholder="Street "
+                               value="${sessionScope.user.customerInfomation.address.shippingAdress}" required="true">
+                    </div>
+                    <div class="mb-3">
+                        <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+                        <input name="Gaddress2" type="text" class="form-control" id="address2"
+                               value="${sessionScope.user.customerInfomation.address.houseNumber}"
+                               placeholder="Apartment or suite">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 mb-3">
+                            <label for="Gcountry">Country</label>
+                            <select name="Gcountry" class="custom-select d-block w-100" id="Gcountry" required="">
+                                <option value="">Choose...</option>
+                                <option>Denmark</option>
+                            </select>
+                        </div>
 
-                    <div class="col-md-3 mb-3">
-                        <label for="Gzip">Zip</label>
-                        <input id="Gzip" name="Gzip" type="text" class="form-control"  placeholder="0000"
-                               value="${sessionScope.user.customerInfomation.address.shippingZipCode}" required="">
-                        <div class="invalid-feedback"> Zip code required.</div>
+                        <div class="col-md-3 mb-3">
+                            <label for="Gzip">Zip</label>
+                            <input id="Gzip" name="Gzip" type="text" class="form-control" placeholder="0000"
+                                   value="${sessionScope.user.customerInfomation.address.shippingZipCode}" required="">
+                        </div>
                     </div>
-                </div>
-                <hr class="mb-4">
-                <div class="custom-control custom-checkbox">
-                    <input name="saveShippingInfo" type="checkbox" class="custom-control-input" id="save-info">
-                    <label class="custom-control-label" for="save-info">Save this information for next time</label>
-                </div>
-                <hr class="mb-4">
-                <h4 class="mb-3">Payment</h4>
-                <div class="d-block my-3">
+                    <hr class="mb-4">
+                    <div class="custom-control custom-checkbox">
+                        <input name="saveShippingInfo" type="checkbox" class="custom-control-input" id="save-info">
+                        <label class="custom-control-label" for="save-info">Save this information for next time</label>
+                    </div>
+                    <hr class="mb-4">
+                    <h4 class="mb-3">Payment</h4>
                     <div class="d-block my-3">
+                        <div class="d-block my-3">
 
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="cc-name">Name on card</label>
-                                <input type="text" class="form-control" id="cc-name" placeholder="" required="">
-                                <small class="text-muted">Full name as displayed on card</small>
-                                <div class="invalid-feedback"> Name on card is required</div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="cc-name">Name on card</label>
+                                    <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+                                    <small class="text-muted">Full name as displayed on card</small>
+                                    <div class="invalid-feedback"> Name on card is required</div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="cc-number">Credit card number</label>
+                                    <input type="text" class="form-control" id="cc-number" placeholder="" required="">
+                                    <div class="invalid-feedback"> Credit card number is required</div>
+                                </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="cc-number">Credit card number</label>
-                                <input type="text" class="form-control" id="cc-number" placeholder="" required="">
-                                <div class="invalid-feedback"> Credit card number is required</div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3 mb-3">
-                                <label for="cc-expiration">Expiration</label>
-                                <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
-                                <div class="invalid-feedback"> Expiration date required</div>
-                            </div>
-                            <div class="col-md-3 mb-3">
-                                <label for="cc-cvv">CVV</label>
-                                <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
-                                <div class="invalid-feedback"> Security code required</div>
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    <label for="cc-expiration">Expiration</label>
+                                    <input type="text" class="form-control" id="cc-expiration" placeholder=""
+                                           required="">
+                                    <div class="invalid-feedback"> Expiration date required</div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="cc-cvv">CVV</label>
+                                    <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
+                                    <div class="invalid-feedback"> Security code required</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <hr class="mb-4">
-                <button name="checkOut" class="btn btn-secondary" type="submit">Check Out</button>
-                </button>
-            </form>
+                    <hr class="mb-4">
+                    <button name="checkOut" class="btn btn-secondary" type="submit">Check Out</button>
+                    </button>
+                </form>
         </div>
 
     </div>

@@ -21,6 +21,7 @@ public class UserPresistence {
     public BaseUser InternalModifyUser(BaseUser user) {
         return this.IUserService.InternalModifyUser(user);
     }
+
     public BaseUser ModifyUser(BaseUser user) {
         return this.IUserService.ModifyUser(user);
     }

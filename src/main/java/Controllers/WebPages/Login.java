@@ -35,16 +35,12 @@ public class Login extends BaseServlet {
         } else {
             login_attempts = (int) req.getSession().getAttribute("loginCount");
         }
-        String email =  Sanitize.santizeHTML(req.getParameter("email"));
+        String email = Sanitize.santizeHTML(req.getParameter("email"));
         String password = Sanitize.santizeHTML(req.getParameter("password"));
         String gRecaptchaResponse = req.getParameter("g-recaptcha-response");
         login_attempts++;
         req.getSession().setAttribute("loginCount", login_attempts);
-        if (login_attempts > 4) {
-            allowLogin = false;
-        } else {
-            allowLogin = true;
-        }
+        allowLogin = login_attempts <= 4;
         try {
             BaseUser user = getUserService().getUser(email);
             if (getLoginService().verifyCredentials(user, password) && VerifyRecaptcha.verify(gRecaptchaResponse) && allowLogin) {

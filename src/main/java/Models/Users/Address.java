@@ -4,21 +4,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.io.Serializable;
 
 /**
  * CREATED BY mathias @ 14-11-2021 - 14:29
  **/
 @Entity(name = "Shipping")
 public class Address {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
     String shippingAdress;
     String houseNumber;
     int shippingZipCode;
     String shippingCity;
     String country;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
     public Address(String shippingAdress, String houseNumber, int shippingZipCode, String shippingCity, String country) {
         this.shippingAdress = shippingAdress;

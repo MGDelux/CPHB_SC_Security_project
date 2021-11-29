@@ -26,11 +26,11 @@ public class BasketPersistence {
         return this.basketService.getProductsInBasket(user);
     }
 
-    public boolean removeProductFromBasket(int index, BaseUser user,HttpServletRequest request) {
-        return this.basketService.removeProductFromBasket(index, user,request);
+    public boolean removeProductFromBasket(int index, BaseUser user, HttpServletRequest request) {
+        return this.basketService.removeProductFromBasket(index, user, request);
     }
 
     public double calculateTotalPrice(HttpServletRequest request) {
-        return this.basketService.calculateTotalPrice   (request);
+        return this.basketService.calculateTotalPrice(request);
     }
 }

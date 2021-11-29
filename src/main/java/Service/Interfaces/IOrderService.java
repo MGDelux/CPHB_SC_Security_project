@@ -8,6 +8,7 @@ import Models.Users.BaseUser;
  **/
 public interface IOrderService {
     boolean createOrder(BaseUser user, Order order);
+
     boolean deleteOrder(BaseUser user, Order order);
 
 }

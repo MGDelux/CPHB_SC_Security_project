@@ -1,6 +1,6 @@
 package Config.ErrorHandling;
 
-public class DBPermissionException extends Exception{
+public class DBPermissionException extends Exception {
 
     public DBPermissionException(String message) {
         super(message);

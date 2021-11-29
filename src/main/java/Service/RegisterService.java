@@ -44,7 +44,7 @@ public class RegisterService implements IRegisterService {
         }
         BaseUser NewUser = new BaseUser(email, password);
         List<Permissions> permissions = new ArrayList<>();
-        Customer customer = new Customer(true,2500);
+        Customer customer = new Customer(true, 2500);
         NewUser.setCustomerInfomation(customer);
         Permissions permissions1 = new Permissions("View Personal Page", Permissions.UserPermissions.VIEW_PERSONAL_USER_PAGE);
         Permissions permissions2 = new Permissions("Add products to basket", Permissions.UserPermissions.ADD_TO_BASKET);

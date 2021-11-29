@@ -26,7 +26,7 @@ public class UserLogin {
     }
 
     public void SetLoggedin(BaseUser user, boolean status) throws Exception {
-        this.userLogin.SetLoggedin(user,status);
+        this.userLogin.SetLoggedin(user, status);
     }
 
     public boolean isLoggedIn(BaseUser user, HttpServletRequest request) {
@@ -36,7 +36,7 @@ public class UserLogin {
     }
 
     public boolean DoReAuthUser(BaseUser user, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        return this.userLogin.reAuthUser(user, request,response);
+        return this.userLogin.reAuthUser(user, request, response);
 
     }
 

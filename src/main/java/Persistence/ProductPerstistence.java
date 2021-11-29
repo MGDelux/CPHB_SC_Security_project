@@ -16,15 +16,15 @@ public class ProductPerstistence {
         this.productService = productService;
     }
 
-    public   Product createNewProduct(BaseUser user, Product product) throws Exception {
+    public Product createNewProduct(BaseUser user, Product product) throws Exception {
         return productService.createNewProduct(user, product);
     }
 
-    public  Product deleteProduct(BaseUser user, Product product) {
+    public Product deleteProduct(BaseUser user, Product product) {
         return productService.deleteProduct(user, product);
     }
 
-    public  Product modifyProduct(BaseUser user, Product product) {
+    public Product modifyProduct(BaseUser user, Product product) {
         return productService.modifyProduct(user, product);
     }
 
@@ -32,7 +32,7 @@ public class ProductPerstistence {
         return productService.getAllProducts();
     }
 
-    public  Product getSpecificProduct(long  product) {
+    public Product getSpecificProduct(long product) {
         return productService.getSpecificProduct(product);
     }
 

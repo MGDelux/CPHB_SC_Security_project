@@ -62,12 +62,13 @@
                                 </c:if>
 
                             </div>
-<div>
-    <p class="mb-0">Password requirments: minimum length 8, One upper case letter, 1 number</p>
-
-</div>
                             <div>
-                                  <p class="mb-0">Already have an account? <a
+                                <p class="mb-0">Password requirments: minimum length 8, One upper case letter, 1
+                                    number</p>
+
+                            </div>
+                            <div>
+                                <p class="mb-0">Already have an account? <a
                                         href="${pageContext.request.contextPath}/login/" class="text-danger fw-bold">Sign
                                     In</a></p>
                             </div>

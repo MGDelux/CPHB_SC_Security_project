@@ -1,6 +1,6 @@
 package Config.ErrorHandling;
 
-public class WebPermissionException extends Exception{
+public class WebPermissionException extends Exception {
 
     public WebPermissionException(String message) {
         super(message);

@@ -15,8 +15,8 @@ public class Order implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
     private double orderID;
-    @OneToOne(targetEntity = CustomerBasket.class, cascade = CascadeType.PERSIST,fetch =  FetchType.EAGER)
-    private  CustomerBasket basket;
+    @OneToOne(targetEntity = CustomerBasket.class, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    private CustomerBasket basket;
 
     public Order(CustomerBasket orderInformation) {
         this.basket = orderInformation;

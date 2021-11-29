@@ -6,8 +6,6 @@ import Models.Store.Product;
 import Models.Users.BaseUser;
 import Models.Users.Permissions;
 import Service.Interfaces.IBasketService;
-
-import javax.enterprise.inject.New;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -75,7 +73,7 @@ public class BasketService implements IBasketService {
                 CustomerBasket customerBasket = (CustomerBasket) request.getSession().getAttribute("userBasket");
                 for (Product p : customerBasket.getProducts()) {
                     price = price + p.getProductPrice();
-                    request.getSession().setAttribute("TotalPrice",price);
+                    request.getSession().setAttribute("TotalPrice", price);
                 }
             }
         } catch (Exception e) {

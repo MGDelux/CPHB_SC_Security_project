@@ -14,11 +14,12 @@ public class OrderPersistence {
         this.orderService = orderService;
     }
 
-    public  boolean createOrder(BaseUser user, Order order){
+    public boolean createOrder(BaseUser user, Order order) {
         return this.orderService.createOrder(user, order);
     }
-    public   boolean deleteOrder(BaseUser user, Order order){
-        return  this.deleteOrder(user, order);
+
+    public boolean deleteOrder(BaseUser user, Order order) {
+        return this.deleteOrder(user, order);
     }
 
 }

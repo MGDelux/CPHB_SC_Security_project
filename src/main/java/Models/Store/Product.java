@@ -9,7 +9,7 @@ import java.util.List;
  * CREATED BY mathias @ 14-11-2021 - 14:07
  **/
 @Entity(name = "Products")
-public class Product{
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
@@ -19,12 +19,13 @@ public class Product{
     private double productPrice;
     private int productsInStock;
     private byte[] ProductPicture;
-    @OneToMany(targetEntity = ProductComment.class,cascade = CascadeType.PERSIST,fetch =  FetchType.EAGER)
+    @OneToMany(targetEntity = ProductComment.class, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private List<ProductComment> productComments;
-    public Product(){
+
+    public Product() {
     }
 
-    public Product( String productName, String productDescription, double productPrice, int productsInStock){
+    public Product(String productName, String productDescription, double productPrice, int productsInStock) {
         this.productName = productName;
         this.productDescription = productDescription;
         this.productPrice = productPrice;

@@ -40,7 +40,8 @@
             <span class="navbar-text">
                 <c:choose>
                     <c:when test="${sessionScope.loggedIn != null}">
-                        <span class="navbar-text"><a class="nav-link" href="${pageContext.request.contextPath}/profile"> ${sessionScope.user.email} </a>  </span>
+                        <span class="navbar-text"><a class="nav-link"
+                                                     href="${pageContext.request.contextPath}/profile"> ${sessionScope.user.email} </a>  </span>
                         <span class="navbar-text"><a class="nav-link" href="${pageContext.request.contextPath}/basket"> basket </a>  </span>
 
                     </c:when>
@@ -59,93 +60,103 @@
     <div class="headers">
         <h1><strong>Velkommen til Solid-Cupcakes</strong></h1>
         <h2 class="header2"><strong>Landets bedste cupcakes, vælg og bestil her</strong></h2>
+        <h2 class="header2"><strong>website edition test</strong></h2>
     </div>
 
     <div class="row row-cols-1 row-cols-md-5">
         <c:choose>
         <c:when test="${requestScope.productsInStore != false}">
         <c:forEach items="${products}" var="product">
-            <form method="post">
+        <form method="post">
 
 
-            <div class="col"  id="">
-            <div class="card bg-dark">
-                <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"
-                     width="35" height="250" class="card-img-top" alt="...">
+            <div class="col" id="">
+                <div class="card bg-dark">
+                    <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"
+                         width="35" height="250" class="card-img-top" alt="...">
 
-                <div class="card-body bg-dark text-white">
+                    <div class="card-body bg-dark text-white">
 
-                    <h5 id="Pepega" class="card-title">${product.productName} - ${product.productID} </h5>
-                    <p class="card-text">${product.productDescription}</p>
+                        <h5 id="Pepega" class="card-title">${product.productName} - ${product.productID} </h5>
+                        <p class="card-text">${product.productDescription}</p>
+                    </div>
+                    <div class="Addcupcake">
+                        <input name="productId" value="${product.productID}" type="hidden">
+                        <button class="btn btn-secondary" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
+                    </div>
+
+                    <!__ Modal button1 starter her -->
+                    <div>
+                        <button type="button" class="btn btn-secondary" data-toggle="modal"
+                                data-target="#Modal${product.productID}">
+                            Se mere
+                        </button>
+                    </div>
+
                 </div>
-                <div class="Addcupcake">
-                    <input name="productId" value="${product.productID}" type="hidden">
-                    <button class="btn btn-secondary" name="AddCupcakeToKurv" type="submit">Tilføj til kurv</button>
-                </div>
 
-                <!__ Modal button1 starter her -->
-                <div>
-                    <button type="button" class="btn btn-secondary" data-toggle="modal"
-                            data-target="#Modal${product.productID}">
-                        Se mere
-                    </button>
-                </div>
+        </form>
 
-            </div>
+    </div>
+    </c:forEach>
 
-            </form>
+    <!__ Modal button1 slutter her -->
 
-    </div></c:forEach>
-
-            <!__ Modal button1 slutter her -->
-
-            <!__ Modal content1 starter her -->
+    <!__ Modal content1 starter her -->
 
 
+    <div>
+        <c:forEach items="${products}" var="productInformation">
 
+        <div class="modal fade" id="Modal${productInformation.productID}" tabindex="-1"
+             role="dialog"
+             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content bg-dark">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card bg-dark">
+                            <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"
+                                 width="35" height="250" class="card-img-top" alt="...">
+                            <div class="card-body bg-dark text-white">
+                                <h5 class="card-title">${productInformation.productName}</h5>
+                                <p class="card-text">${productInformation.productDescription}
+                                </p>
+                            </div>
+                            <h4>Comment reviews</h4>
+                            <div class="container mt-5">
+                                <div class="d-flex">
+                                    <div class="col-lg-12">
+                                        <div class="p-3 bg-white rounded">
+                                            <h6>Reviews[${productInformation.productComments.size()}]</h6>
+                                            <c:forEach items="${productInformation.productComments}" var="comments">
+                                                <div class="rating"><i class="fa fa-star">${comments.rating}</i></div>
 
-        <div>
-            <c:forEach items="${products}" var="productInformation">
-
-            <div class="modal fade" id="Modal${productInformation.productID}" tabindex="-1"
-                 role="dialog"
-                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content bg-dark">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="card bg-dark">
-                                <img src="http://cdn.sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-5.jpg"
-                                     width="35" height="250" class="card-img-top" alt="...">
-                                <div class="card-body bg-dark text-white">
-                                    <h5 class="card-title">${productInformation.productName}</h5>
-                                    <p class="card-text">${productInformation.productDescription}
-                                    </p>
-                                </div>
-                               <h4>Comment reviews</h4>
-                                <div class="container mt-5">
-                                    <div class="d-flex">
-                                        <div class="col-lg-12">
-                                            <div class="p-3 bg-white rounded">
-                                                <h6>Reviews[${productInformation.productComments.size()}]</h6>
-                                                <c:forEach items="${productInformation.productComments}" var="comments">
-                                                    <div class="rating"><i class="fa fa-star">${comments.rating}</i></div>
-
-                                                    <div class="review mt-4">
-                                                    <div class="d-flex flex-row comment-user"><img class="rounded" src="https://i.imgur.com/8KBx3uI.jpg" width="40">
+                                                <div class="review mt-4">
+                                                    <div class="d-flex flex-row comment-user"><img class="rounded"
+                                                                                                   src="https://i.imgur.com/8KBx3uI.jpg"
+                                                                                                   width="40">
                                                         <div class="ml-2">
 
 
                                                             <c:choose>
                                                                 <c:when test="${comments.commenter.username == null}">
-                                                                    <div class="d-flex flex-row align-items-center"><span class="name font-weight-bold">${comments.commenter.email}</span><span class="dot"></span><span class="date">${comments.timeAndDateStamp}</span></div>
+                                                                    <div class="d-flex flex-row align-items-center">
+                                                                        <span class="name font-weight-bold">${comments.commenter.email}</span><span
+                                                                            class="dot"></span><span
+                                                                            class="date">${comments.timeAndDateStamp}</span>
+                                                                    </div>
                                                                 </c:when>
                                                                 <c:when test="${comments.commenter.username != null}">
-                                                                    <div class="d-flex flex-row align-items-center"><span class="name font-weight-bold">${comments.commenter.username}</span><span class="dot"></span><span class="date">${comments.timeAndDateStamp}</span></div>
+                                                                    <div class="d-flex flex-row align-items-center">
+                                                                        <span class="name font-weight-bold">${comments.commenter.username}</span><span
+                                                                            class="dot"></span><span
+                                                                            class="date">${comments.timeAndDateStamp}</span>
+                                                                    </div>
                                                                 </c:when>
                                                             </c:choose>
                                                         </div>
@@ -155,7 +166,7 @@
                                                         <p class="comment-text">${comments.comment}</p>
                                                     </div>
                                                 </div>
-                                                </c:forEach>
+                                            </c:forEach>
                                         </div>
 
                                     </div>
@@ -163,40 +174,57 @@
                                 <hr class="solid text-white">
                                 <div id="comment">
                                     <form method="post">
-                                    <div class="card bg-dark text-white" id="commentCard">
-                                        <div class="row">
-                                            <div class="col-2"><img
-                                                    src="https://i.imgur.com/xELPaag.jpg"
-                                                    width="70" class="rounded-circle mt-2">
-                                            </div>
-                                            <input name="productId" value="${productInformation.productID}" type="hidden">
-                                            <div class="col-10">
-                                                <div class="comment-box ml-2">
-                                                    <h4>Add a comment</h4>
-                                                    <div class="rating">
-                                                        <input type="radio" name="Commentrating" value="5" id="5${productInformation.productID}"><label for="5${productInformation.productID}">☆</label>
-                                                        <input type="radio" name="Commentrating"  value="4" id="4${productInformation.productID}"><label for="4${productInformation.productID}">☆</label>
-                                                        <input type="radio" name="Commentrating" value="3" id="3${productInformation.productID}"><label for="3${productInformation.productID}">☆</label>
-                                                        <input type="radio" name="Commentrating" value="2" id="2${productInformation.productID}"><label for="2${productInformation.productID}">☆</label>
-                                                        <input type="radio" checked name="Commentrating" value="1" id="1${productInformation.productID}"><label for="1${productInformation.productID}">☆</label></div>
-                                                    <div class="comment-area"><textarea   name="UserComment" class="form-control" placeholder="Your Comment" rows="4"></textarea>
-                                                    </div>
+                                        <div class="card bg-dark text-white" id="commentCard">
+                                            <div class="row">
+                                                <div class="col-2"><img
+                                                        src="https://i.imgur.com/xELPaag.jpg"
+                                                        width="70" class="rounded-circle mt-2">
+                                                </div>
+                                                <input name="productId" value="${productInformation.productID}"
+                                                       type="hidden">
+                                                <div class="col-10">
+                                                    <div class="comment-box ml-2">
+                                                        <h4>Add a comment</h4>
+                                                        <div class="rating">
+                                                            <input type="radio" name="Commentrating" value="5"
+                                                                   id="5${productInformation.productID}"><label
+                                                                for="5${productInformation.productID}">☆</label>
+                                                            <input type="radio" name="Commentrating" value="4"
+                                                                   id="4${productInformation.productID}"><label
+                                                                for="4${productInformation.productID}">☆</label>
+                                                            <input type="radio" name="Commentrating" value="3"
+                                                                   id="3${productInformation.productID}"><label
+                                                                for="3${productInformation.productID}">☆</label>
+                                                            <input type="radio" name="Commentrating" value="2"
+                                                                   id="2${productInformation.productID}"><label
+                                                                for="2${productInformation.productID}">☆</label>
+                                                            <input type="radio" checked name="Commentrating" value="1"
+                                                                   id="1${productInformation.productID}"><label
+                                                                for="1${productInformation.productID}">☆</label></div>
+                                                        <div class="comment-area"><textarea name="UserComment"
+                                                                                            class="form-control"
+                                                                                            placeholder="Your Comment"
+                                                                                            rows="4"></textarea>
+                                                        </div>
 
-                                                    <div class="comment-btns mt-2">
-                                                        <div class="row">
-                                                            <div class="col-6">
-                                                                <div class="pull-left">
+                                                        <div class="comment-btns mt-2">
+                                                            <div class="row">
+                                                                <div class="col-6">
+                                                                    <div class="pull-left">
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="g-recaptcha"
-                                                                 data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
-                                                            <div class="col-6">
+                                                                <div class="g-recaptcha"
+                                                                     data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+                                                                <div class="col-6">
 
-                                                                <div class="pull-right"
-                                                                     id="commentButton">
-                                                                    <button name="PostComment" class="btn btn-secondary send btn-sm" type="submit">
-                                                                        Post comment
-                                                                    </button>
+                                                                    <div class="pull-right"
+                                                                         id="commentButton">
+                                                                        <button name="PostComment"
+                                                                                class="btn btn-secondary send btn-sm"
+                                                                                type="submit">
+                                                                            Post comment
+                                                                        </button>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -204,7 +232,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
@@ -225,7 +252,7 @@
             </div>
         </div>
 
-            </form>
+        </form>
 
         </c:forEach>
         </c:when>

@@ -1,7 +1,7 @@
 package Config;
 
-import java.util.regex.Pattern;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * CREATED BY mathias @ 21-11-2021 - 16:09

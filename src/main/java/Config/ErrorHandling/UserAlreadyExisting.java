@@ -1,6 +1,6 @@
 package Config.ErrorHandling;
 
-public class UserAlreadyExisting extends Exception{
+public class UserAlreadyExisting extends Exception {
 
     public UserAlreadyExisting(String message) {
         super(message);

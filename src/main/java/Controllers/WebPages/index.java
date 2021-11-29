@@ -3,9 +3,7 @@ package Controllers.WebPages;
 import Config.Sanitize;
 import Config.VerifyRecaptcha;
 import Controllers.BaseServlet;
-import Models.Store.Log;
 import Models.Store.Product;
-import Models.Store.ProductComment;
 import Models.Users.BaseUser;
 
 import javax.servlet.ServletException;
@@ -49,7 +47,7 @@ public class index extends BaseServlet {
                 String gRecaptchaResponse = req.getParameter("g-recaptcha-response");
                 long rating = (Long.parseLong(req.getParameter("Commentrating")));
                 Product specificProduct = getProductService().getSpecificProduct(Long.parseLong(req.getParameter("productId")));
-                if (getLoginService().DoReAuthUser(user,req,resp) && VerifyRecaptcha.verify(gRecaptchaResponse)) {
+                if (getLoginService().DoReAuthUser(user, req, resp) && VerifyRecaptcha.verify(gRecaptchaResponse)) {
                     System.out.println("post comment");
                     req.removeAttribute("g-recaptcha-response");
                     getCommentService().postComment(Integer.parseInt(String.valueOf(rating)), specificProduct, comment, user);
@@ -68,7 +66,7 @@ public class index extends BaseServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException, ServletException, IOException {
+            throws ServletException, IOException {
         List<Product> productList = new ArrayList<>();
         setUp(req, resp);
         try {

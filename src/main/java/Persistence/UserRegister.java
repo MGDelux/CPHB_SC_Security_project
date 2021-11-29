@@ -1,6 +1,5 @@
 package Persistence;
 
-import Config.ErrorHandling.WebPermissionException;
 import Models.Users.BaseUser;
 import Service.Interfaces.IRegisterService;
 
