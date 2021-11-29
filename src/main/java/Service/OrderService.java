@@ -17,13 +17,11 @@ public class OrderService implements IOrderService {
 
     @Override
     public boolean createOrder(BaseUser user, Order order) {
-        System.out.println("create order");
         if (user.checkForPermission(Permissions.UserPermissions.ADD_TO_BASKET)) {
             EntityManager em = emf.createEntityManager();
             em.getTransaction().begin();
             em.merge(order);
             em.getTransaction().commit();
-            System.out.println("order is go");
             return true;
         }
         return false;

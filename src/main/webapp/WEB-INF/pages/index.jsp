@@ -28,7 +28,7 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href= "${pageContext.request.contextPath}/">Home</a>
                 </li>
                 <li class="nav-item">
                     <c:if test="${sessionScope.loggedIn ==null}">
@@ -60,7 +60,6 @@
     <div class="headers">
         <h1><strong>Velkommen til Solid-Cupcakes</strong></h1>
         <h2 class="header2"><strong>Landets bedste cupcakes, vælg og bestil her</strong></h2>
-        <h2 class="header2"><strong>website edition test</strong></h2>
     </div>
 
     <div class="row row-cols-1 row-cols-md-5">
@@ -77,8 +76,8 @@
 
                     <div class="card-body bg-dark text-white">
 
-                        <h5 id="Pepega" class="card-title">${product.productName} - ${product.productID} </h5>
-                        <p class="card-text">${product.productDescription}</p>
+                        <h5 id="Pepega" class="card-title">${product.productName}</h5>
+                        <p class="card-text">${product.productDescription} ${product.productPrice}ddk.-</p>
                     </div>
                     <div class="Addcupcake">
                         <input name="productId" value="${product.productID}" type="hidden">
@@ -214,7 +213,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="g-recaptcha"
-                                                                     data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+                                                                     data-sitekey="6LcfzUEdAAAAAJ2BgqoyBq5ajTxipA13MzeZ77yD"></div>
                                                                 <div class="col-6">
 
                                                                     <div class="pull-right"

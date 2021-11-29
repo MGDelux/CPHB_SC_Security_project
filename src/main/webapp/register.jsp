@@ -48,7 +48,7 @@
 
 
                                     <div class="g-recaptcha"
-                                         data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+                                         data-sitekey="6LcfzUEdAAAAAJ2BgqoyBq5ajTxipA13MzeZ77yD"></div>
                                     <button class="btn btn-outline-dark btn-lg px-5" type="submit">Register</button>
                                 </div>
                             </form>

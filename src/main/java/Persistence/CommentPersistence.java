@@ -16,6 +16,7 @@ public class CommentPersistence {
 
     public void postComment(int rating, Product specificProduct, String comment, BaseUser user) throws Exception {
         this.commentService.postComment(rating, specificProduct, comment, user);
+
     }
 }
 

@@ -25,7 +25,7 @@ public class ProductComment implements Serializable {
     private String timeAndDateStamp;
     @NotNull
     @ManyToOne(targetEntity = BaseUser.class, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-    @JoinColumn(name = "comment_test_id")
+    @JoinColumn(name = "user_commenter")
     private BaseUser commenter;
     @NotNull
     @Column(name = "Comment")

@@ -54,8 +54,7 @@ public class ProductService implements IProductService {
             productList = em.createNativeQuery("SELECT * FROM PRODUCTS", Product.class).getResultList();
             return productList;
         } catch (Exception e) {
-            System.out.println(e);
-        }
+e.printStackTrace();        }
 
         return null;
     }

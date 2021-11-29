@@ -65,7 +65,6 @@ public class Login extends BaseServlet {
             if (!allowLogin) {
                 req.setAttribute("LogInError", "Login not allowed, too many failed attempts");
             }
-            System.out.println("error " + loginError.getMessage());
             doGet(req, resp);
 
         }

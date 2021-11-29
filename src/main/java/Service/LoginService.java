@@ -59,7 +59,6 @@ public class LoginService implements ILoginService {
         long timePassed = (long) request.getSession().getAttribute("loginTime");
         long currentTime = System.currentTimeMillis();
         long timeElapsed = currentTime - timePassed;
-        System.out.println(timeElapsed);
         //10min 600000ms
         if (timeElapsed >= 600000) {
             request.getSession().setAttribute("doReAuth", true);

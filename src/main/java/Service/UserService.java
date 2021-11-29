@@ -18,16 +18,13 @@ public class UserService implements IUserService {
     public BaseUser getUser(String email) {
         emf = EMF_Creator.createEntityManagerFactory();
         try {
-            System.out.println("getting user");
             EntityManager em = emf.createEntityManager();
             BaseUser checkUser;
             checkUser = (BaseUser) em.createNativeQuery(
                     "SELECT * FROM USERS where Email = ?", BaseUser.class).setParameter(1, email).getSingleResult();
-            System.out.println(checkUser.toString());
             if (checkUser.getEmail().equalsIgnoreCase(email)) {
                 return checkUser;
             } else {
-                System.out.println("not found user");
                 throw new UserNotFoundException();
             }
         } catch (UserNotFoundException e) {

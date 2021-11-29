@@ -62,7 +62,7 @@ public class Basket extends BaseServlet {
                             getUserService().InternalModifyUser(user);
                             getOrderService().createOrder(user, order);
                         } catch (Exception e) {
-                            System.out.println(e);
+                            e.printStackTrace();
                         }
                     } else {
                         Address address = new Address(shippingAdress, houseNumber, zipCode, "todo", country);
@@ -70,17 +70,16 @@ public class Basket extends BaseServlet {
                         CustomerBasket customerBasket = (CustomerBasket) req.getSession().getAttribute("userBasket");
                         Order order = new Order(customerBasket);
                         getOrderService().createOrder(user, order);
-                        System.out.println("order created with updated without information");
 
                     }
                 }
-                resp.sendRedirect(req.getContextPath() + "/thankyou");
+                resp.sendRedirect(req.getContextPath() + "/");
             } catch (Exception e) {
-                System.out.println(e);
+                e.printStackTrace();
             }
 
         } catch (NullPointerException e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
 
     }

@@ -18,6 +18,7 @@ public class Admin extends BaseServlet {
     @Override
     protected void setUp(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         super.setUp(req, resp);
+        super.setUp(req, resp);
     }
 
     @Override

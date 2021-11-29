@@ -48,7 +48,6 @@ public class index extends BaseServlet {
                 long rating = (Long.parseLong(req.getParameter("Commentrating")));
                 Product specificProduct = getProductService().getSpecificProduct(Long.parseLong(req.getParameter("productId")));
                 if (getLoginService().DoReAuthUser(user, req, resp) && VerifyRecaptcha.verify(gRecaptchaResponse)) {
-                    System.out.println("post comment");
                     req.removeAttribute("g-recaptcha-response");
                     getCommentService().postComment(Integer.parseInt(String.valueOf(rating)), specificProduct, comment, user);
                 }
@@ -59,7 +58,7 @@ public class index extends BaseServlet {
             resp.sendRedirect(req.getContextPath() + "/");
 
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
 
     }
@@ -80,7 +79,7 @@ public class index extends BaseServlet {
                 req.setAttribute("products", productList);
             }
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
 
         render("index", "/WEB-INF/pages/index.jsp", req, resp);
