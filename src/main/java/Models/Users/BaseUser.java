@@ -27,6 +27,10 @@ public class BaseUser implements Serializable {
     private Long id;
     @Column(name = "Name")
     private String username;
+    @Column(name = "SecretKey")
+    private String SecretKey;
+
+
     @NotNull
     @Size(min = 5, max = 255)
     @Column(name = "Password")
@@ -69,6 +73,10 @@ public class BaseUser implements Serializable {
         }
 
     }
+
+    public String getSecretKey() {return SecretKey;}
+
+    public void setSecretKey(String secretKey) {SecretKey = secretKey;}
 
     public long getId() {
         return id;

@@ -22,7 +22,7 @@ class RegisterServiceTest {
     permissions.add(permissions2);
     permissions.add(permissions3);
     permissions.add(permissions4);
-    registerService.registerUser("mathiastouboel@gmail.com", "password");
+    registerService.registerUser("mathiastouboel@gmail.com", "password","123123");
 
 
 

@@ -6,6 +6,7 @@ import Config.Sanitize;
 import Config.VerifyRecaptcha;
 import Controllers.BaseServlet;
 
+import javax.crypto.SecretKey;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -39,7 +40,7 @@ public class Register extends BaseServlet {
         try { //NESTED IF STATEMENTS FTW /S
             if (password.equals(retypedPassword) && PasswordStrengthValidation.ValidatePWStrength(password)) {
                 if (VerifyRecaptcha.verify(gRecaptchaResponse) && getRegisterService().checkIfUserInSystem(email, password)) {
-                    getRegisterService().register(email, password);
+                    getRegisterService().register(email, password,"QDWSM3OYBPGTEVSPB5FKVDM3CSNCWHVK");
                     request.setAttribute("SuccessFullReq", "You have been successfully registered");
                     response.sendRedirect(request.getContextPath() + "/login");
                 } else {

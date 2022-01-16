@@ -15,7 +15,7 @@
 </head>
 <body>
 <div class="container emp-profile bg-dark text-white">
-    <form method="post">
+    <form method="post" action="UploadServlet" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-img">
@@ -23,10 +23,14 @@
                          alt=""/>
                     <div class="file btn btn-lg btn-primary">
                         Change Photo
-                        <input type="file" name="file"/>
+                        <input type="file" name="file" size="50"/>
+
                     </div>
                 </div>
+                <input type="submit" value="Upload"/>
+
             </div>
+
             <div class="col-md-6">
                 <div class="profile-head">
                     <h5>
@@ -38,6 +42,7 @@
                 <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
             </div>
         </div>
+    </form>
         <div class="row">
             <div class="col-md-8">
                 <div class="tab-content profile-tab" id="myTabContent">
@@ -126,7 +131,7 @@
                 </div>
             </div>
         </div>
-    </form>
+
 </div>
 
 

@@ -13,8 +13,8 @@ public class UserRegister {
         this.service = service;
     }
 
-    public BaseUser register(String email, String password) throws Exception {
-        return service.registerUser(email, password);
+    public BaseUser register(String email, String password, String SecretKey) throws Exception {
+        return service.registerUser(email, password,SecretKey);
     }
 
     public boolean checkIfUserInSystem(String email, String password) throws Exception {

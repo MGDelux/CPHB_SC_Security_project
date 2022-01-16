@@ -19,4 +19,5 @@ public interface ILoginService {
 
     boolean ForceReAuth(BaseUser user, HttpServletRequest request, HttpServletResponse response) throws IOException;
 
+
 }

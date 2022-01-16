@@ -7,6 +7,7 @@ import Models.Users.Customer;
 import Models.Users.Permissions;
 import Service.Interfaces.IRegisterService;
 
+import javax.crypto.SecretKey;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ public class RegisterService implements IRegisterService {
     }
 
     @Override
-    public BaseUser registerUser(String email, String password) throws Exception {
+    public BaseUser registerUser(String email, String password,String SecretKey) throws Exception {
         EntityManager em = emf.createEntityManager();
 
         if (email == null || password == null) {

@@ -8,5 +8,6 @@ import Models.Users.BaseUser;
 public interface IRegisterService {
     boolean CheckIfInSystem(String email, String password) throws Exception;
 
-    BaseUser registerUser(String email, String password) throws Exception;
+    BaseUser registerUser(String email, String password, String SecretKey) throws Exception;
+
 }

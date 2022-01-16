@@ -11,4 +11,9 @@ public interface IUserService {
     BaseUser InternalModifyUser(BaseUser user);
 
     BaseUser ModifyUser(BaseUser user);
+
+    String generateSecretKey();
+
+    String getTOTPCode(String secretKey);
+
 }
