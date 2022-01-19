@@ -4,7 +4,7 @@
 <html lang="en" dir="ltr">
 <head>
     <script src="https://www.google.com/recaptcha/api.js"></script>
-    <title>login</title>
+    <title>verify Authenticator</title>
     <style>
         <jsp:include page="css/loginstyle.css"/>
     </style>
@@ -25,20 +25,10 @@
                         <div class="mb-md-5 mt-md-4 pb-5">
                             <form method="post">
 
-                                <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-                                <p class="text-white-50 mb-5">Please enter your email and password!</p>
+                                <h2 class="fw-bold mb-2 text-uppercase">verify Authenticator</h2>
+                                <p class="text-white-50 mb-5">Please enter your Verification code from google auth!</p>
 
                                 <div class="form-outline form-white mb-4">
-                                    <input name="email" type="email" id="typeEmailX"
-                                           class="form-control form-control-lg" placeholder="Email" required/>
-                                    <label class="form-label" for="typeEmailX">Email</label>
-                                </div>
-
-                                <div class="form-outline form-white mb-4">
-                                    <input name="password" type="password" id="typePasswordX"
-                                           class="form-control form-control-lg" placeholder="Password" required/>
-                                    <label class="form-label" for="typePasswordX">Password</label>
-
                                     <input name="SecretKey" type="password" id="SecretKey"
                                            class="form-control form-control-lg" placeholder="SecretKey" required/>
                                     <label class="form-label" for="SecretKey">Verification</label>

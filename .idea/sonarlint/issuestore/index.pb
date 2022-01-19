@@ -1,0 +1,23 @@
+
+c
+3src/main/java/Controllers/WebPages/Profilepage.java,0\6\0626cde7aa117240e26138ceafda6d5f1c21eaa3
+O
+src/main/webapp/profilepage.jsp,9\4\941cc1925766aa5347e34f81bedbedf02c27fa46
+a
+1src/main/java/Controllers/WebPages/QRServlet.java,c\e\ce09b1106cb44007cfd955e14b26103f51f6ff1c
+e
+5src/main/java/Controllers/WebPages/UploadServlet.java,5\b\5b09e4ed0ec8511062c057ac9777663397381664
+O
+src/main/webapp/WEB-INF/web.xml,2\e\2e22b6edd746fa3dc40ad7276c87c8d87d72a392
+X
+(src/main/java/Models/Users/BaseUser.java,a\b\ab38a0bc4243a21e9e6c269d596a89ad07d68ca3
+^
+.src/main/java/Persistence/UserPresistence.java,1\d\1d1fc22fbbd8f6e07faf56742b01249464c5cb49
+]
+-src/test/java/Service/ProductServiceTest.java,a\d\ad00dafe6627dc1b9c774c2180024cde5b88efb5
+^
+.src/test/java/Service/RegisterServiceTest.java,3\5\35938dbd7d65bbf4bb4f823c323301e86913ae42
+Y
+)src/test/java/Service/Generatedigits.java,1\4\14598a48f23f0e170ffb5a3a9a2e712910194aa7
+Z
+*src/test/java/Service/UserServiceTest.java,6\6\66ecdcf2bba122114205ae4248ee1b54009d0101

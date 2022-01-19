@@ -3,6 +3,7 @@ package Persistence;
 import Models.Users.BaseUser;
 import Service.Interfaces.IRegisterService;
 
+
 /**
  * CREATED BY mathias @ 18-11-2021 - 12:35
  **/
@@ -20,6 +21,8 @@ public class UserRegister {
     public boolean checkIfUserInSystem(String email, String password) throws Exception {
         return service.CheckIfInSystem(email, password);
     }
-
+    public String generateSecretKey() {
+        return service.generateSecretKey();
+    }
 }
 

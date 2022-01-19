@@ -12,8 +12,4 @@ public interface IUserService {
 
     BaseUser ModifyUser(BaseUser user);
 
-    String generateSecretKey();
-
-    String getTOTPCode(String secretKey);
-
 }

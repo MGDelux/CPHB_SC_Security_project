@@ -2,6 +2,9 @@ package Persistence;
 
 import Models.Users.BaseUser;
 import Service.Interfaces.ILoginService;
+import de.taimos.totp.TOTP;
+import org.apache.commons.codec.binary.Base32;
+import org.apache.commons.codec.binary.Hex;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -39,5 +42,7 @@ public class UserLogin {
         return this.userLogin.reAuthUser(user, request, response);
 
     }
-
+    public String getTOTPCode(String SecretKey){
+        return this.userLogin.getTOTPCode(SecretKey);
+    }
 }

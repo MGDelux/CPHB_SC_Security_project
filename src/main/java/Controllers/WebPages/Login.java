@@ -5,6 +5,7 @@ import Config.VerifyRecaptcha;
 import Controllers.BaseServlet;
 import Models.Users.BaseUser;
 
+import javax.crypto.SecretKey;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -45,6 +46,7 @@ public class Login extends BaseServlet {
             BaseUser user = getUserService().getUser(email);
             if (getLoginService().verifyCredentials(user, password) && VerifyRecaptcha.verify(gRecaptchaResponse) && allowLogin) {
                 req.getSession().setAttribute("user", user);
+                getLoginService().getTOTPCode(user.getSecretKey());
                 req.getSession().setAttribute("loggedIn", true);
                 req.getSession().setAttribute("loginTime", System.currentTimeMillis());
                 getLoginService().SetLoggedin(user, true);

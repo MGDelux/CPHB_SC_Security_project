@@ -19,5 +19,5 @@ public interface ILoginService {
 
     boolean ForceReAuth(BaseUser user, HttpServletRequest request, HttpServletResponse response) throws IOException;
 
-
+    String getTOTPCode(String SecretKey);
 }

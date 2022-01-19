@@ -10,4 +10,9 @@ public interface IRegisterService {
 
     BaseUser registerUser(String email, String password, String SecretKey) throws Exception;
 
+    String generateSecretKey();
+
+    String getGoogleAuthenticatorBarCode(String SecretKey, String email);
+
+
 }
