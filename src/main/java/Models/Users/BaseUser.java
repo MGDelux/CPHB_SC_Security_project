@@ -30,6 +30,8 @@ public class BaseUser implements Serializable {
     @Column(name = "SecretKey")
     private String SecretKey;
 
+    @Column(name = "QRCode")
+    private String QRCode;
 
     @NotNull
     @Size(min = 5, max = 255)
@@ -52,6 +54,10 @@ public class BaseUser implements Serializable {
     public BaseUser() {
 
     }
+
+    public String getQRCode() {return QRCode;}
+
+    public void setQRCode(String QRCode) {this.QRCode = QRCode;}
 
     public boolean isLoggedIn() {
         return isLoggedIn;

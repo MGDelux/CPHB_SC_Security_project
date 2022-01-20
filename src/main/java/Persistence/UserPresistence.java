@@ -3,6 +3,8 @@ package Persistence;
 import Models.Users.BaseUser;
 import Service.Interfaces.IUserService;
 
+import javax.crypto.SecretKey;
+
 /**
  * CREATED BY mathias @ 18-11-2021 - 20:07
  **/
@@ -26,4 +28,5 @@ public class UserPresistence {
         return this.IUserService.ModifyUser(user);
     }
 
+    public BaseUser getSecret(String SecretKey) {return this.IUserService.getSecret(SecretKey);}
 }

@@ -11,6 +11,7 @@ import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.encoder.QRCode;
 import org.apache.commons.codec.binary.Base32;
 
 import javax.crypto.SecretKey;
@@ -96,6 +97,7 @@ public class RegisterService implements IRegisterService {
             throw new IllegalStateException(e);
         }
     }
+
 
     public void createQRCode(String barCodeData, String filePath, int height, int width)
             throws WriterException, IOException {

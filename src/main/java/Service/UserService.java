@@ -45,7 +45,22 @@ public class UserService implements IUserService {
             return null;
         }
     }
-
+    public BaseUser getSecret(String SecretKey) {
+        emf = EMF_Creator.createEntityManagerFactory();
+        try {
+            EntityManager em = emf.createEntityManager();
+            BaseUser checkUser;
+            checkUser = (BaseUser) em.createNativeQuery(
+                    "SELECT * FROM USERS where SecretKey = ?", BaseUser.class).setParameter(1, SecretKey).getSingleResult();
+            if (checkUser.getEmail().equalsIgnoreCase(SecretKey)) {
+                return checkUser;
+            } else {
+                throw new UserNotFoundException();
+            }
+        } catch (UserNotFoundException e) {
+            return null;
+        }
+    }
     @Override
     public BaseUser InternalModifyUser(BaseUser user) {
         emf = EMF_Creator.createEntityManagerFactory();

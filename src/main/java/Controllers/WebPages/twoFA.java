@@ -5,28 +5,25 @@ import Config.VerifyRecaptcha;
 import Controllers.BaseServlet;
 import Models.Users.BaseUser;
 
-import javax.crypto.SecretKey;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
+import java.util.Objects;
 
 /**
- * CREATED BY mathias @ 16-11-2021 - 12:42
+ * CREATED BY Emil @ 19-01-2022 - 12:34
  **/
-@WebServlet({"/login", "/login/*"})
-public class Login extends BaseServlet {
+public class twoFA extends BaseServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        setUp(req, resp);
-        render("login page", "/login.jsp", req, resp);
+
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doGet(req, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPost(req, resp);
         boolean allowLogin;
 
         int login_attempts;
@@ -36,23 +33,20 @@ public class Login extends BaseServlet {
         } else {
             login_attempts = (int) req.getSession().getAttribute("loginCount");
         }
-        String email = Sanitize.santizeHTML(req.getParameter("email"));
-        String password = Sanitize.santizeHTML(req.getParameter("password"));
-        String gRecaptchaResponse = req.getParameter("g-recaptcha-response");
+        String key = Sanitize.santizeHTML(req.getParameter("SecretKey"));
         login_attempts++;
         req.getSession().setAttribute("loginCount", login_attempts);
         allowLogin = login_attempts <= 4;
         try {
-            BaseUser user = getUserService().getUser(email);
-            if (getLoginService().verifyCredentials(user, password) && VerifyRecaptcha.verify(gRecaptchaResponse) && allowLogin) {
+            BaseUser user = (BaseUser) req.getSession().getAttribute("email");;
+            if (Objects.equals(getLoginService().getTOTPCode(user.getSecretKey()), key) && allowLogin) {
                 req.getSession().setAttribute("user", user);
-                getLoginService().getTOTPCode(user.getSecretKey());
                 req.getSession().setAttribute("loggedIn", true);
                 req.getSession().setAttribute("loginTime", System.currentTimeMillis());
                 getLoginService().SetLoggedin(user, true);
                 req.getSession().setAttribute("doReAuth", false);
                 req.changeSessionId();
-                resp.sendRedirect(req.getContextPath() + "/2FA");
+                resp.sendRedirect(req.getContextPath() + "/");
             } else {
                 req.setAttribute("LogInError", "Email or password incorrect ");
                 if (!allowLogin) {
@@ -61,7 +55,7 @@ public class Login extends BaseServlet {
                 doGet(req, resp);
 
             }
-        } catch (Exception loginError) { //TODO: FIX
+        } catch (Exception loginError) {
 
             req.setAttribute("LogInError", "Email or password incorrect ");
             if (!allowLogin) {
@@ -73,4 +67,6 @@ public class Login extends BaseServlet {
 
 
     }
-}
+    }
+
+

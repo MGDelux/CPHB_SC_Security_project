@@ -36,14 +36,16 @@ public class Register extends BaseServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         String email = Sanitize.santizeHTML(request.getParameter("email"));
         String password = Sanitize.santizeHTML(request.getParameter("password"));
-        String SecreKey = getRegisterService().generateSecretKey();
-        System.out.println(SecreKey);
+        String SecretKey = getRegisterService().generateSecretKey();
+        String QRCode = getRegisterService().getGoogleAuthenticatorBarCode(SecretKey,email);
+        System.out.println(SecretKey);
+        System.out.println(QRCode);
         String retypedPassword = Sanitize.santizeHTML(request.getParameter("RetypedPassword"));
         String gRecaptchaResponse = request.getParameter("g-recaptcha-response");
         try { //NESTED IF STATEMENTS FTW /S
             if (password.equals(retypedPassword) && PasswordStrengthValidation.ValidatePWStrength(password)) {
                 if (VerifyRecaptcha.verify(gRecaptchaResponse) && getRegisterService().checkIfUserInSystem(email, password)) {
-                    getRegisterService().register(email, password,SecreKey);
+                    getRegisterService().register(email, password,SecretKey);
                     request.setAttribute("SuccessFullReq", "You have been successfully registered");
                     response.sendRedirect(request.getContextPath() + "/login");
                 } else {

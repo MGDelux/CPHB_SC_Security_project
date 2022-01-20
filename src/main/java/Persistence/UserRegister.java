@@ -24,5 +24,9 @@ public class UserRegister {
     public String generateSecretKey() {
         return service.generateSecretKey();
     }
+    public String getGoogleAuthenticatorBarCode(String SecretKey, String email) {
+        return service.getGoogleAuthenticatorBarCode(SecretKey, email);
+    }
+
 }
 

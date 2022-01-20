@@ -12,4 +12,5 @@ public interface IUserService {
 
     BaseUser ModifyUser(BaseUser user);
 
+    BaseUser getSecret(String SecretKey);
 }

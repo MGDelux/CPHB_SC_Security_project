@@ -11,7 +11,7 @@ import java.net.URLEncoder;
  **/
 class RegisterServiceBarCode {
 
-    @Test
+    /**@Test
     String getGoogleAuthenticatorBarCode() {
         String SecretKey = "QDWSM3OYBPGTEVSPB5FKVDM3CSNCWHVK";
         String email = "test@gmail.com";
@@ -29,4 +29,5 @@ class RegisterServiceBarCode {
             throw new IllegalStateException(e);
         }
     }
+    **/
     }
